@@ -1,0 +1,1 @@
+let landingPage=document.querySelector(".landing-page"),imagesArray=Array();for(let a=0;a<6;a++)imagesArray[a]=a+1+".jpg";let duration=5e3;setInterval(()=>{var a=Math.floor(Math.random()*imagesArray.length);landingPage.style.backgroundImage='url("imgs/landing/'+imagesArray[a]+'")'},duration);
