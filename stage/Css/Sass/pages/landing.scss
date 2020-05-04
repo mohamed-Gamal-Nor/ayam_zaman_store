@@ -5,6 +5,7 @@
     background-image: url("../imgs/landing/6.jpg");
     background-size: cover;
     position: relative;
+    transition: 0.5s;
     .overlay {
         background-color: rgba($color: #000000, $alpha: 0.6);
         position: absolute;
@@ -31,23 +32,102 @@
                 }
             }
         }
+        .links-menu {
+            display: none;
+        }
         .links {
             list-style: none;
             width: 100%;
             text-align: center;
-            padding-top: 15px;
+            padding-top: 25px;
             padding-left: 0;
             padding-right: 20px;
             font-size: 15px;
             font-weight: bold;
+            .icon {
+                display: none;
+            }
             li {
                 display: inline-block;
-                margin-left: 15px;
                 a {
                     color: #fff;
                     text-decoration: none;
                     transition: all 0.3s;
-                    &:hover,
+                    position: relative;
+                    padding: 10px;
+                    &::before {
+                        width: 5px;
+                        height: 5px;
+                        background: transparent;
+                        content: "";
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        border-right: 2px solid white;
+                        border-top: 2px solid white;
+                        transition: 0.3s;
+                        opacity: 0;
+                    }
+                    &::after {
+                        width: 5px;
+                        height: 5px;
+                        background: transparent;
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        border-left: 2px solid white;
+                        border-bottom: 2px solid white;
+                        transition: 0.3s;
+                        opacity: 0;
+                    }
+                    span {
+                        &::before {
+                            width: 5px;
+                            height: 5px;
+                            background: transparent;
+                            content: "";
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            border-top: 2px solid white;
+                            border-left: 2px solid white;
+                            transition: 0.3s;
+                            opacity: 0;
+                        }
+                        &::after {
+                            width: 5px;
+                            height: 5px;
+                            background: transparent;
+                            content: "";
+                            position: absolute;
+                            right: 0;
+                            bottom: 0;
+                            border-right: 2px solid white;
+                            border-bottom: 2px solid white;
+                            transition: 0.3s;
+                            opacity: 0;
+                        }
+                    }
+                    &:hover {
+                        color: var(--main--color);
+                        padding: 5px;
+                        margin: 5px;
+                        &::before {
+                            opacity: 1;
+                        }
+                        &::after {
+                            opacity: 1;
+                        }
+                        span {
+                            &::before {
+                                opacity: 1;
+                            }
+                            &::after {
+                                opacity: 1;
+                            }
+                        }
+                    }
                     &.active {
                         color: var(--main--color);
                     }
@@ -131,3 +211,664 @@
 
 
 /* end landing page css*/
+
+
+/* start responsive for landing pages*/
+
+@media(min-width: 0) and (max-width: 320px) {
+    .landing-page {
+        max-width: 320px;
+        .header-area {
+            max-width: 300px;
+            z-index: 3;
+            .logo {
+                width: 300px;
+                padding: 10px;
+                a {
+                    img {
+                        width: 35px;
+                    }
+                }
+            }
+            .links-menu {
+                display: block;
+                width: 100%;
+                text-align: right;
+                margin-right: 10px;
+                i {
+                    line-height: 60px;
+                    cursor: pointer;
+                }
+            }
+            .links {
+                position: fixed;
+                background-color: #fff;
+                width: 45%;
+                right: -45%;
+                top: -2%;
+                text-align: left;
+                padding: 0;
+                height: 100vh;
+                font-size: 13px;
+                transition: 0.3s;
+                .icon {
+                    display: block;
+                    width: 100%;
+                    text-align: right;
+                    padding: 5px;
+                    font-size: 15px;
+                    padding-right: 10px;
+                    color: #333;
+                    i {
+                        cursor: pointer;
+                    }
+                }
+                li {
+                    display: block;
+                    margin: 5px;
+                    margin-bottom: 15px;
+                    a {
+                        color: #333;
+                        &::before {
+                            width: 0px;
+                            height: 0px;
+                            border-right: 0px solid white;
+                            border-top: 0px solid white;
+                        }
+                        &::after {
+                            width: 0px;
+                            height: 0px;
+                            border-left: 0px solid white;
+                            border-bottom: 0px solid white;
+                        }
+                        span {
+                            &::before {
+                                width: 0px;
+                                height: 0px;
+                                border-right: 0px solid white;
+                                border-top: 0px solid white;
+                            }
+                            &::after {
+                                width: 0px;
+                                height: 0px;
+                                border-left: 0px solid white;
+                                border-bottom: 0px solid white;
+                            }
+                        }
+                        &:hover {
+                            padding: 10px;
+                            margin: 0px;
+                        }
+                    }
+                }
+            }
+        }
+        .introduction-text {
+            h1 {
+                font-size: 20px;
+                span {
+                    display: block;
+                }
+            }
+            p {
+                line-height: 1.6;
+                font-size: 13px;
+                margin: 0;
+            }
+            .landing-button {
+                width: 100%;
+                button {
+                    width: 100%;
+                    padding: 10px;
+                    font-size: 12px;
+                    display: block;
+                    margin: 5px;
+                    &:nth-of-type(1) {
+                        margin-right: 00px;
+                    }
+                }
+            }
+        }
+        .somze-down {
+            font-size: 20px;
+        }
+    }
+}
+
+
+/* Portrait phones and smaller */
+
+@media(min-width: 321px) and (max-width: 380px) {
+    .landing-page {
+        max-width: 380px;
+        .header-area {
+            max-width: 350px;
+            z-index: 3;
+            .logo {
+                width: 300px;
+                padding: 10px;
+                a {
+                    img {
+                        width: 40px;
+                    }
+                }
+            }
+            .links-menu {
+                display: block;
+                width: 100%;
+                text-align: right;
+                margin-right: 10px;
+                i {
+                    line-height: 60px;
+                    cursor: pointer;
+                }
+            }
+            .links {
+                position: fixed;
+                background-color: #fff;
+                width: 45%;
+                right: -45%;
+                top: -2%;
+                text-align: left;
+                padding: 0;
+                height: 100vh;
+                font-size: 13px;
+                transition: 0.3s;
+                .icon {
+                    display: block;
+                    width: 100%;
+                    text-align: right;
+                    padding: 5px;
+                    font-size: 15px;
+                    padding-right: 10px;
+                    color: #333;
+                    i {
+                        cursor: pointer;
+                    }
+                }
+                li {
+                    display: block;
+                    margin: 5px;
+                    margin-bottom: 15px;
+                    a {
+                        color: #333;
+                        &::before {
+                            width: 0px;
+                            height: 0px;
+                            border-right: 0px solid white;
+                            border-top: 0px solid white;
+                        }
+                        &::after {
+                            width: 0px;
+                            height: 0px;
+                            border-left: 0px solid white;
+                            border-bottom: 0px solid white;
+                        }
+                        span {
+                            &::before {
+                                width: 0px;
+                                height: 0px;
+                                border-right: 0px solid white;
+                                border-top: 0px solid white;
+                            }
+                            &::after {
+                                width: 0px;
+                                height: 0px;
+                                border-left: 0px solid white;
+                                border-bottom: 0px solid white;
+                            }
+                        }
+                        &:hover {
+                            padding: 10px;
+                            margin: 0px;
+                        }
+                    }
+                }
+            }
+        }
+        .introduction-text {
+            h1 {
+                font-size: 25px;
+                span {
+                    display: block;
+                }
+            }
+            p {
+                line-height: 1.6;
+                font-size: 14px;
+                margin: 0;
+            }
+            .landing-button {
+                width: 100%;
+                button {
+                    width: 100%;
+                    padding: 10px;
+                    font-size: 12px;
+                    display: block;
+                    margin: 5px;
+                    &:nth-of-type(1) {
+                        margin-right: 00px;
+                    }
+                }
+            }
+        }
+        .somze-down {
+            font-size: 20px;
+        }
+    }
+}
+
+
+/* Portrait phones and smaller */
+
+@media (min-width: 381px) and (max-width: 480px) {
+    .landing-page {
+        max-width: 480px;
+        .header-area {
+            max-width: 450px;
+            z-index: 3;
+            .logo {
+                width: 300px;
+                padding: 10px;
+                a {
+                    img {
+                        width: 45px;
+                    }
+                }
+            }
+            .links-menu {
+                display: block;
+                width: 100%;
+                text-align: right;
+                margin-right: 10px;
+                i {
+                    line-height: 60px;
+                    cursor: pointer;
+                }
+            }
+            .links {
+                position: fixed;
+                background-color: #fff;
+                width: 45%;
+                right: -45%;
+                top: -2%;
+                text-align: left;
+                padding: 0;
+                height: 100vh;
+                font-size: 13px;
+                transition: 0.3s;
+                .icon {
+                    display: block;
+                    width: 100%;
+                    text-align: right;
+                    padding: 5px;
+                    font-size: 15px;
+                    padding-right: 10px;
+                    color: #333;
+                    i {
+                        cursor: pointer;
+                    }
+                }
+                li {
+                    display: block;
+                    margin: 5px;
+                    margin-bottom: 15px;
+                    a {
+                        color: #333;
+                        &::before {
+                            width: 0px;
+                            height: 0px;
+                            border-right: 0px solid white;
+                            border-top: 0px solid white;
+                        }
+                        &::after {
+                            width: 0px;
+                            height: 0px;
+                            border-left: 0px solid white;
+                            border-bottom: 0px solid white;
+                        }
+                        span {
+                            &::before {
+                                width: 0px;
+                                height: 0px;
+                                border-right: 0px solid white;
+                                border-top: 0px solid white;
+                            }
+                            &::after {
+                                width: 0px;
+                                height: 0px;
+                                border-left: 0px solid white;
+                                border-bottom: 0px solid white;
+                            }
+                        }
+                        &:hover {
+                            padding: 10px;
+                            margin: 0px;
+                        }
+                    }
+                }
+            }
+        }
+        .introduction-text {
+            h1 {
+                font-size: 25px;
+                span {
+                    display: block;
+                }
+            }
+            p {
+                line-height: 1.6;
+                font-size: 15px;
+                margin: 0;
+            }
+            .landing-button {
+                width: 100%;
+                button {
+                    width: 100%;
+                    padding: 10px;
+                    font-size: 13px;
+                    display: block;
+                    margin: 5px;
+                    &:nth-of-type(1) {
+                        margin-right: 00px;
+                    }
+                }
+            }
+        }
+        .somze-down {
+            font-size: 20px;
+        }
+    }
+}
+
+
+/* Landscape phones and portrait tablets */
+
+@media(min-width: 481px) and (max-width: 572px) {
+    .landing-page {
+        max-width: 573px;
+        .header-area {
+            max-width: 550px;
+            z-index: 3;
+            .logo {
+                width: 300px;
+                padding: 10px;
+                a {
+                    img {
+                        width: 50px;
+                    }
+                }
+            }
+            .links-menu {
+                display: block;
+                width: 100%;
+                text-align: right;
+                margin-right: 10px;
+                i {
+                    line-height: 60px;
+                    cursor: pointer;
+                }
+            }
+            .links {
+                position: fixed;
+                background-color: #fff;
+                width: 45%;
+                right: -45%;
+                top: -2%;
+                text-align: left;
+                padding: 0;
+                height: 100vh;
+                font-size: 13px;
+                transition: 0.3s;
+                .icon {
+                    display: block;
+                    width: 100%;
+                    text-align: right;
+                    padding: 5px;
+                    font-size: 15px;
+                    padding-right: 10px;
+                    color: #333;
+                    i {
+                        cursor: pointer;
+                    }
+                }
+                li {
+                    display: block;
+                    margin: 5px;
+                    margin-bottom: 15px;
+                    a {
+                        color: #333;
+                        &::before {
+                            width: 0px;
+                            height: 0px;
+                            border-right: 0px solid white;
+                            border-top: 0px solid white;
+                        }
+                        &::after {
+                            width: 0px;
+                            height: 0px;
+                            border-left: 0px solid white;
+                            border-bottom: 0px solid white;
+                        }
+                        span {
+                            &::before {
+                                width: 0px;
+                                height: 0px;
+                                border-right: 0px solid white;
+                                border-top: 0px solid white;
+                            }
+                            &::after {
+                                width: 0px;
+                                height: 0px;
+                                border-left: 0px solid white;
+                                border-bottom: 0px solid white;
+                            }
+                        }
+                        &:hover {
+                            padding: 10px;
+                            margin: 0px;
+                        }
+                    }
+                }
+            }
+        }
+        .introduction-text {
+            h1 {
+                font-size: 28px;
+                span {
+                    display: block;
+                }
+            }
+            p {
+                line-height: 1.6;
+                font-size: 15px;
+                margin: 0;
+            }
+            .landing-button {
+                width: 100%;
+                button {
+                    width: 100%;
+                    padding: 10px;
+                    font-size: 13px;
+                    display: block;
+                    margin: 5px;
+                    &:nth-of-type(1) {
+                        margin-right: 00px;
+                    }
+                }
+            }
+        }
+        .somze-down {
+            font-size: 20px;
+        }
+    }
+}
+
+
+/* Landscape phones and portrait tablets */
+
+@media(min-width: 573px) and (max-width: 767px) {
+    .landing-page {
+        max-width: 768px;
+        .header-area {
+            max-width: 750px;
+            z-index: 3;
+            .logo {
+                width: 300px;
+                padding: 10px;
+                a {
+                    img {
+                        width: 60px;
+                    }
+                }
+            }
+            .links-menu {
+                display: block;
+                width: 100%;
+                text-align: right;
+                margin-right: 15px;
+                i {
+                    font-size: 20px;
+                    line-height: 60px;
+                    cursor: pointer;
+                }
+            }
+            .links {
+                position: fixed;
+                background-color: #fff;
+                width: 35%;
+                right: -35%;
+                top: -2.5%;
+                text-align: left;
+                padding: 0;
+                height: 100vh;
+                font-size: 15px;
+                transition: 0.3s;
+                .icon {
+                    display: block;
+                    width: 100%;
+                    text-align: right;
+                    padding: 5px;
+                    font-size: 18px;
+                    padding-right: 10px;
+                    color: #333;
+                    i {
+                        cursor: pointer;
+                    }
+                }
+                li {
+                    display: block;
+                    margin: 5px;
+                    margin-bottom: 15px;
+                    a {
+                        color: #333;
+                        &::before {
+                            width: 0px;
+                            height: 0px;
+                            border-right: 0px solid white;
+                            border-top: 0px solid white;
+                        }
+                        &::after {
+                            width: 0px;
+                            height: 0px;
+                            border-left: 0px solid white;
+                            border-bottom: 0px solid white;
+                        }
+                        span {
+                            &::before {
+                                width: 0px;
+                                height: 0px;
+                                border-right: 0px solid white;
+                                border-top: 0px solid white;
+                            }
+                            &::after {
+                                width: 0px;
+                                height: 0px;
+                                border-left: 0px solid white;
+                                border-bottom: 0px solid white;
+                            }
+                        }
+                        &:hover {
+                            padding: 10px;
+                            margin: 0px;
+                        }
+                    }
+                }
+            }
+        }
+        .introduction-text {
+            h1 {
+                font-size: 30px;
+                span {
+                    display: block;
+                }
+            }
+            p {
+                line-height: 1.6;
+                font-size: 15px;
+                margin: 0;
+            }
+            .landing-button {
+                width: 100%;
+                button {
+                    width: 100%;
+                    padding: 10px;
+                    font-size: 14px;
+                    display: block;
+                    margin: 5px;
+                    &:nth-of-type(1) {
+                        margin-right: 00px;
+                    }
+                }
+            }
+        }
+        .somze-down {
+            font-size: 22px;
+        }
+    }
+}
+
+
+/* Portrait tablets and small desktops */
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .landing-page {
+        .header-area {
+            .logo {
+                padding: 10px;
+                a {
+                    img {
+                        width: 60px;
+                        left: 25%;
+                    }
+                }
+            }
+            .links {
+                padding-right: 10px;
+                font-size: 14px;
+                li {
+                    display: inline-block;
+                }
+            }
+        }
+        .introduction-text {
+            h1 {
+                font-size: 30px;
+            }
+            p {
+                font-size: 18px;
+            }
+            .landing-button {
+                button {
+                    font-size: 15px;
+                }
+            }
+        }
+        .somze-down {
+            font-size: 30px;
+        }
+    }
+}
+
+
+/* end responsive for landing pages*/

@@ -15,4 +15,15 @@ setInterval(() => {
     landingPage.style.backgroundImage =
         'url("imgs/landing/' + imagesArray[randomNumber] + '")';
 }, duration);
+
+// menu button code
+let menuButtonShow = document.querySelector(".links-menu i");
+let menuButtonHide = document.querySelector(".links .icon i");
+let menu = document.querySelector(".links");
+menuButtonShow.onclick = function() {
+    menu.style.right = 0;
+};
+menuButtonHide.onclick = function() {
+    menu.style.right = "-" + menu.offsetWidth + "px";
+};
 // end landing page
