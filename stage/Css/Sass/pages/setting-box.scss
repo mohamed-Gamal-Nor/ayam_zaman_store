@@ -1,0 +1,110 @@
+/* start setting box*/
+
+.settings-box {
+    position: fixed;
+    left: -200px;
+    top: 0;
+    background-color: rgba($color: #fff, $alpha: 1);
+    width: 200px;
+    z-index: 1000;
+    min-height: 100vh;
+    transition: 0.3s;
+    &.open {
+        left: 0px;
+    }
+    .toggle-settings {
+        position: absolute;
+        right: -30px;
+        top: 150px;
+        background-color: #fff;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 0px 5px 5px 0px;
+        font-size: 18px;
+        .fa-cog {
+            width: 30px;
+            padding: 8px 0;
+        }
+    }
+    .settings-container {
+        .option-box {
+            padding: 10px;
+            text-align: center;
+            background-color: #eee;
+            margin: 10px;
+            h4 {
+                margin: 0;
+                color: #666;
+                font-size: 14px;
+            }
+            .colors-list {
+                list-style: none;
+                text-align: center;
+                padding: 0;
+                margin: 10px 0 0;
+                $colors: #4fb8ea, #1abc9c, #c0392b, #e67e22, #8e44ad;
+                @for $i from 1 through length($colors) {
+                    li:nth-child(#{$i}) {
+                        background-color: nth($colors, $i);
+                    }
+                }
+                li {
+                    width: 25px;
+                    height: 25px;
+                    background-color: black;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    opacity: 0.5;
+                    display: inline-block;
+                    border: 3px solid #eee;
+                    transition: 0.3s;
+                    &.active {
+                        opacity: 1;
+                        border-color: #fff;
+                    }
+                }
+            }
+            .random-background {
+                .yes,
+                .no {
+                    width: 50px;
+                    background-color: #009688;
+                    color: #fff;
+                    margin-top: 10px;
+                    margin: 5px;
+                    cursor: pointer;
+                    display: inline-block;
+                    font-size: 12px;
+                    padding: 4px 10px;
+                    font-weight: bold;
+                    border-radius: 4px;
+                    opacity: 0.5;
+                    &.active {
+                        opacity: 1;
+                    }
+                }
+            }
+            .span-image {
+                margin-top: 5px;
+                display: none;
+                span {
+                    position: relative;
+                    img {
+                        width: 70px;
+                        height: 70px;
+                        margin: 5px;
+                        cursor: pointer;
+                        opacity: 0.5;
+                        transition: 0.3s;
+                        &.active {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* end setting box*/

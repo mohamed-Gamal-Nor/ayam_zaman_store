@@ -1,0 +1,32 @@
+<!--start setting box-->
+.settings-box
+  .toggle-settings
+    .fa.fa-cog
+  .settings-container
+    .option-box
+      h4 Colors
+      - var Themes = ["#4fb8ea","#1abc9c","#c0392b","#e67e22","#8e44ad"]
+      ul.colors-list
+        each Theme,index in Themes
+          li(class= (index === 0 ? "active" : undefined) data-color=Theme)
+    .option-box
+      h4 Random Backgrounds
+      .random-background
+        span.yes.active(data-background="yes") Yes
+        span.no( data-background="no") No
+    .option-box
+      h4 Chose Background
+      .span-image
+        span
+          img.active(src="./imgs/landing/1.jpg")
+        span
+          img(src="./imgs/landing/2.jpg")
+        span
+          img(src="./imgs/landing/3.jpg")
+        span
+          img(src="./imgs/landing/4.jpg")
+        span
+          img(src="./imgs/landing/5.jpg")
+        span
+          img(src="./imgs/landing/6.jpg")
+<!--end setting box-->
