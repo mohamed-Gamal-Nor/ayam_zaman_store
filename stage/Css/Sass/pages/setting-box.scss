@@ -102,6 +102,34 @@
                     }
                 }
             }
+            .font-list {
+                list-style: none;
+                text-align: center;
+                padding: 0;
+                margin: 10px 0 0;
+                $fonts: "Open Sans", "Indie Flower", "Patrick Hand", "Kaushan Script", "Poiret One";
+                @for $i from 1 through length($fonts) {
+                    li:nth-child(#{$i}) {
+                        font-family: nth($fonts, $i);
+                    }
+                }
+                li {
+                    display: inline-block;
+                    font-weight: bold;
+                    width: 25px;
+                    height: 25px;
+                    font-size: 20px;
+                    cursor: pointer;
+                    transition: 0.3s;
+                    border: 1px solid #eee;
+                    &.active {
+                        color: var(--main--color);
+                        background-color: rgba($color: #333, $alpha: 0.30);
+                        border-radius: 3px;
+                        border-color: var(--main--color);
+                    }
+                }
+            }
         }
     }
 }

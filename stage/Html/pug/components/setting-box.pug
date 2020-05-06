@@ -29,4 +29,10 @@
           img(src="./imgs/landing/5.jpg")
         span
           img(src="./imgs/landing/6.jpg")
+    .option-box
+      h4 Font Style
+      - var fonts = ["Open Sans","Indie Flower","Patrick Hand","Kaushan Script","Poiret One"]
+      ul.font-list
+        each font,index in fonts
+          li(class=(index===0?"active":undefined) data-font=font) Fa
 <!--end setting box-->

@@ -8,6 +8,8 @@ let mainColors = localStorage.getItem("color_option");
 let backgroundLocalItem = localStorage.getItem("background_option");
 //check if theres local storge background
 let setBackground = localStorage.getItem("backgroundChange");
+// check fonts in local storge
+let setFont = localStorage.getItem("fontFamily");
 //check local storge main color
 if (mainColors !== null) {
     document.documentElement.style.setProperty("--main--color", mainColors);
@@ -63,7 +65,17 @@ if (setBackground !== null) {
         if ("url(" + element.getAttribute("src") + ")" === setBackground) {
             // add active classs
             element.classList.add("active");
-        } else {}
+        }
+    });
+}
+// check local storge set font
+if (setFont !== null) {
+    document.getElementsByTagName("body")[0].style.fontFamily = setFont;
+    document.querySelectorAll(".font-list li").forEach((element) => {
+        element.classList.remove("active");
+        if (element.dataset.font === setFont) {
+            element.classList.add("active");
+        }
     });
 }
 //start settings box
@@ -128,7 +140,21 @@ randomBackground.forEach((span) => {
         }
     });
 });
-
+// swithc font style
+const fontLi = document.querySelectorAll(".font-list li");
+fontLi.forEach((li) => {
+    li.addEventListener("click", (e) => {
+        document.getElementsByTagName("body")[0].style.fontFamily =
+            e.target.dataset.font;
+        localStorage.setItem("fontFamily", e.target.dataset.font);
+        // remove active classs from all children
+        e.target.parentElement.querySelectorAll(".active").forEach((Element) => {
+            Element.classList.remove("active");
+        });
+        // add active class
+        e.target.classList.add("active");
+    });
+});
 //end settings box
 
 // start landing page
