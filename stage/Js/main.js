@@ -10,6 +10,8 @@ let backgroundLocalItem = localStorage.getItem("background_option");
 let setBackground = localStorage.getItem("backgroundChange");
 // check fonts in local storge
 let setFont = localStorage.getItem("fontFamily");
+// set about us image
+let setAboutImg = localStorage.getItem("aboutImg");
 //check local storge main color
 if (mainColors !== null) {
     document.documentElement.style.setProperty("--main--color", mainColors);
@@ -21,6 +23,11 @@ if (mainColors !== null) {
             element.classList.add("active");
         }
     });
+    if (setAboutImg !== null) {
+        document
+            .querySelector(".about-us .image-box img")
+            .setAttribute("src", "./imgs/about/" + setAboutImg + ".png");
+    }
 }
 // check local storge random background
 if (backgroundLocalItem !== null) {
@@ -94,6 +101,15 @@ colorsLi.forEach((li) => {
             "--main--color",
             e.target.dataset.color
         );
+        // and change image in about us
+        document
+            .querySelector(".about-us .image-box img")
+            .setAttribute(
+                "src",
+                "./imgs/about/" + e.target.dataset.color.split("#")[1] + ".png"
+            );
+        // set about image in local storge
+        localStorage.setItem("aboutImg", e.target.dataset.color.split("#")[1]);
         // set color in local storge
         localStorage.setItem("color_option", e.target.dataset.color);
         // remove active classs from all children
@@ -191,3 +207,81 @@ menuButtonHide.onclick = function() {
     menu.style.right = "-" + menu.offsetWidth + "px";
 };
 // end landing page
+
+//start our feature
+let ourSkills = document.querySelector(".counter");
+const counterItem = document.querySelectorAll(".counter .counter-item .count");
+const speed = 300;
+window.onscroll = function() {
+    // get offset top by skills
+    let skillsOffsetTop = ourSkills.offsetTop;
+    //skills outer height
+    let skillsOuterHeight = ourSkills.offsetHeight;
+    //window height
+    let windowHeight = this.innerHeight;
+    // window scroll top
+    let windowScrollTop = this.pageYOffset;
+    let counterElement = document.querySelector(".counter .counter-item");
+    if (
+        windowScrollTop >
+        skillsOffsetTop + skillsOuterHeight - windowHeight - 1
+    ) {
+        counterElement.style.opacity = "1";
+        counterItem.forEach((counter) => {
+            const updateCount = () => {
+                const counterTarget = +counter.dataset.target;
+                const counterStart = +counter.innerText;
+                const inc = counterTarget / speed;
+                if (counterStart < counterTarget) {
+                    counter.innerText = Math.ceil(counterStart + inc);
+                    setTimeout(updateCount, 1);
+                } else {
+                    counterStart.innerText = counterTarget;
+                }
+            };
+            updateCount();
+        });
+    }
+};
+
+//end our skills
+
+// create popup with the image
+let ourGallery = document.querySelectorAll(".gallery .images-box img");
+ourGallery.forEach((img) => {
+    img.addEventListener("click", (e) => {
+        //create ovar lay element
+        let overLay = document.createElement("div");
+        // add class to over lay
+        overLay.className = "popup-overlay";
+        // appen overlay to body
+        document.body.appendChild(overLay);
+        // create the popup box
+        let popupBox = document.createElement("div");
+        // add class to the popup box
+        popupBox.className = "popup-box";
+        //create image
+        let popupImage = document.createElement("img");
+        //change src image and get src from click image
+        popupImage.src = img.src;
+        // add image to popup box
+        popupBox.appendChild(popupImage);
+        // append popup box to body
+        document.body.appendChild(popupBox);
+        // create close popup
+        let closeButton = document.createElement("span");
+        // create the close button text
+        let closeButtonText = document.createTextNode("X");
+        closeButton.appendChild(closeButtonText);
+        closeButton.className = "close-button";
+        popupBox.appendChild(closeButton);
+    });
+});
+//close popup
+document.addEventListener("click", (e) => {
+    if (e.target.className == "close-button") {
+        // remove the current popup
+        e.target.parentNode.remove();
+        document.querySelector(".popup-overlay").remove();
+    }
+});

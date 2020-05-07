@@ -1,0 +1,225 @@
+.gallery {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    h2 {
+        font-weight: bold;
+        font-size: 30px;
+        color: var(--main--color);
+        margin: 0 0 50px;
+        width: 15%;
+        padding-bottom: 5px;
+        border-bottom: 2px solid var(--main--color);
+    }
+    .images-box {
+        text-align: center;
+        img {
+            width: 250px;
+            height: 250px;
+            padding: 3px;
+            background-color: #f6f6f6;
+            border: 1px solid #ccc;
+            margin: 5px;
+            cursor: pointer;
+            filter: grayscale(100%);
+            transition: 0.3s;
+            &:hover {
+                filter: grayscale(0%);
+            }
+        }
+    }
+}
+
+.popup-overlay {
+    position: fixed;
+    background-color: rgba($color: #000000, $alpha: 0.7);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.popup-box {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 1001;
+    img {
+        width: 600px;
+        height: 100%;
+    }
+    .close-button {
+        position: absolute;
+        top: -10px;
+        right: -15px;
+        background-color: var(--main--color);
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        font-size: 20px;
+        color: #fff;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 50%;
+    }
+}
+
+@media(min-width: 0) and (max-width: 320px) {
+    .gallery {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        h2 {
+            font-size: 19px;
+            margin: 0 0 10px;
+            width: 50%;
+        }
+        .images-box {
+            img {
+                width: 200px;
+                height: 200px;
+                filter: grayscale(0%);
+            }
+        }
+    }
+    .popup-box {
+        padding: 10px;
+        img {
+            width: 200px;
+        }
+        .close-button {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 18px;
+        }
+    }
+}
+
+@media(min-width: 321px) and (max-width: 380px) {
+    .gallery {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        h2 {
+            font-size: 19px;
+            margin: 0 0 10px;
+            width: 50%;
+        }
+        .images-box {
+            img {
+                width: 200px;
+                height: 200px;
+                filter: grayscale(0%);
+            }
+        }
+    }
+    .popup-box {
+        padding: 10px;
+        img {
+            width: 200px;
+        }
+        .close-button {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 18px;
+        }
+    }
+}
+
+@media (min-width: 381px) and (max-width: 480px) {
+    .gallery {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        h2 {
+            font-size: 19px;
+            margin: 0 0 10px;
+            width: 50%;
+        }
+        .images-box {
+            img {
+                width: 200px;
+                height: 200px;
+                filter: grayscale(0%);
+            }
+        }
+    }
+    .popup-box {
+        padding: 10px;
+        img {
+            width: 250px;
+        }
+        .close-button {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 18px;
+        }
+    }
+}
+
+@media(min-width: 481px) and (max-width: 572px) {
+    .gallery {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        h2 {
+            font-size: 19px;
+            margin: 0 0 10px;
+            width: 50%;
+        }
+        .images-box {
+            img {
+                width: 200px;
+                height: 200px;
+                filter: grayscale(0%);
+            }
+        }
+    }
+    .popup-box {
+        padding: 10px;
+        img {
+            width: 250px;
+        }
+        .close-button {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 18px;
+        }
+    }
+}
+
+@media(min-width: 573px) and (max-width: 767px) {
+    .gallery {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        h2 {
+            font-size: 19px;
+            margin: 0 0 10px;
+            width: 50%;
+        }
+        .images-box {
+            img {
+                width: 250px;
+                height: 250px;
+                filter: grayscale(0%);
+            }
+        }
+    }
+    .popup-box {
+        padding: 10px;
+        img {
+            width: 300px;
+        }
+        .close-button {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 18px;
+        }
+    }
+}
