@@ -209,9 +209,11 @@ menuButtonHide.onclick = function() {
 // end landing page
 
 //start our feature
-let ourSkills = document.querySelector(".counter");
-const counterItem = document.querySelectorAll(".counter .counter-item .count");
-const speed = 300;
+let ourSkills = document.querySelector(".about-us");
+const counterItem = document.querySelectorAll(
+    ".about-us .counter-about .count"
+);
+const speed = 1;
 window.onscroll = function() {
     // get offset top by skills
     let skillsOffsetTop = ourSkills.offsetTop;
@@ -221,17 +223,15 @@ window.onscroll = function() {
     let windowHeight = this.innerHeight;
     // window scroll top
     let windowScrollTop = this.pageYOffset;
-    let counterElement = document.querySelector(".counter .counter-item");
     if (
         windowScrollTop >
         skillsOffsetTop + skillsOuterHeight - windowHeight - 1
     ) {
-        counterElement.style.opacity = "1";
         counterItem.forEach((counter) => {
             const updateCount = () => {
                 const counterTarget = +counter.dataset.target;
                 const counterStart = +counter.innerText;
-                const inc = counterTarget / speed;
+                const inc = speed;
                 if (counterStart < counterTarget) {
                     counter.innerText = Math.ceil(counterStart + inc);
                     setTimeout(updateCount, 1);

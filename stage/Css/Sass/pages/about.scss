@@ -1,40 +1,99 @@
 .about-us {
     padding-top: 50px;
     padding-bottom: 50px;
-    display: flex;
+    h1 {
+        font-size: 2em;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+    h2 {
+        color: transparent !important;
+        background: url(../imgs/last/bg_font.jpg) repeat;
+        background-position: 40% 50%;
+        background-clip: text;
+        position: relative;
+        font-size: 6.875em;
+        line-height: 1.14em;
+        margin-top: 0;
+        font-weight: bold;
+        text-align: center;
+    }
     .info-box {
-        flex: 1;
+        display: flex;
         padding: 30px;
-        h2 {
-            font-weight: bold;
-            font-size: 30px;
-            color: var(--main--color);
-            margin: 0 0 10px;
-            width: 35%;
-            padding-bottom: 5px;
-            border-bottom: 2px solid var(--main--color);
-        }
-        p {
-            line-height: 1.8;
-            color: #777;
-            margin: 0;
-            font-weight: 400;
-        }
-        .about-icon {
-            margin-top: 10px;
-            i {
-                border: 2px solid var(--main--color);
-                width: 60px;
-                height: 60px;
-                padding: 10px;
-                font-size: 30px;
-                margin-right: 7px;
-                color: var(--main--color);
-                transition: 0.3s;
-                cursor: pointer;
-                &:hover {
-                    background-color: var(--main--color);
-                    color: #fff;
+        .counter-info {
+            background-color: #f6f6f6;
+            width: 50%;
+            padding: 80px;
+            h3 {
+                text-transform: none;
+                font-weight: 400;
+                font-size: 2.125em;
+                margin: 0;
+                margin-bottom: 5px;
+            }
+            h4 {
+                font-size: 4em;
+                margin: 0;
+                margin-bottom: 25px;
+                font-weight: bold;
+                span {
+                    color: var(--main--color);
+                }
+            }
+            p {
+                line-height: 1.8;
+                color: #777;
+                margin: 0;
+                font-weight: 400;
+                margin: 30px 0 30px 0;
+                font-size: 14px;
+            }
+            .counter-about {
+                width: 100%;
+                display: flex;
+                .counter-item {
+                    margin: 5px;
+                    padding: 10px;
+                    width: 30%;
+                    .count {
+                        color: var(--main--color);
+                        font-weight: 600;
+                        font-size: 3em;
+                        line-height: 1.1em;
+                        margin: 0;
+                        &.per {
+                            &::after {
+                                content: "%";
+                            }
+                        }
+                    }
+                    span {
+                        letter-spacing: 0;
+                        line-height: 1.25em;
+                        text-transform: uppercase;
+                        font-weight: 600;
+                        margin-top: 3px;
+                        margin-bottom: 7px;
+                    }
+                }
+            }
+            .about-icon {
+                margin-top: 10px;
+                i {
+                    border: 2px solid var(--main--color);
+                    width: 60px;
+                    height: 60px;
+                    padding: 10px;
+                    font-size: 30px;
+                    margin-right: 7px;
+                    color: var(--main--color);
+                    transition: 0.3s;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: var(--main--color);
+                        color: #fff;
+                    }
                 }
             }
         }
@@ -43,7 +102,7 @@
         flex: 1;
         text-align: right;
         img {
-            width: 400px;
+            width: 600px;
         }
     }
 }
@@ -52,25 +111,59 @@
     .about-us {
         padding-top: 20px;
         padding-bottom: 20px;
-        display: block;
+        h1 {
+            font-size: 1em;
+        }
+        h2 {
+            font-size: 4em;
+        }
         .info-box {
+            display: block;
             padding: 10px;
-            h2 {
-                font-size: 18px;
-                margin: 0 0 5px;
-            }
-            p {
-                font-size: 13px;
-            }
-            .about-icon {
-                margin-top: 5px;
-                i {
-                    border: 1px solid var(--main--color);
-                    width: 55px;
-                    height: 55px;
-                    padding: 15px;
-                    font-size: 20px;
-                    margin-right: 7px;
+            .counter-info {
+                background-color: #f6f6f6;
+                width: 100%;
+                padding: 20px;
+                h3 {
+                    font-size: 1em;
+                }
+                h4 {
+                    font-size: 2em;
+                }
+                p {
+                    margin: 15px 0 15px 0;
+                    font-size: 12px;
+                }
+                .counter-about {
+                    display: block;
+                    .counter-item {
+                        text-align: center;
+                        width: 100%;
+                        .count {
+                            color: var(--main--color);
+                            font-weight: 600;
+                            font-size: 1.5em;
+                            line-height: 1.1em;
+                            margin: 0;
+                            &.per {
+                                &::after {
+                                    content: "%";
+                                }
+                            }
+                        }
+                        span {
+                            font-size: 13px;
+                        }
+                    }
+                }
+                .about-icon {
+                    margin-top: 10px;
+                    i {
+                        width: 45px;
+                        height: 45px;
+                        padding: 10px;
+                        font-size: 20px;
+                    }
                 }
             }
         }
@@ -88,25 +181,60 @@
     .about-us {
         padding-top: 20px;
         padding-bottom: 20px;
-        display: block;
+        h1 {
+            font-size: 1em;
+        }
+        h2 {
+            font-size: 4em;
+        }
         .info-box {
+            display: block;
             padding: 10px;
-            h2 {
-                font-size: 18px;
-                margin: 0 0 5px;
-            }
-            p {
-                font-size: 13px;
-            }
-            .about-icon {
-                margin-top: 5px;
-                i {
-                    border: 1px solid var(--main--color);
-                    width: 55px;
-                    height: 55px;
-                    padding: 15px;
-                    font-size: 20px;
-                    margin-right: 7px;
+            .counter-info {
+                background-color: #f6f6f6;
+                width: 100%;
+                padding: 20px;
+                h3 {
+                    font-size: 1em;
+                }
+                h4 {
+                    font-size: 2em;
+                }
+                p {
+                    margin: 15px 0 15px 0;
+                    font-size: 12px;
+                }
+                .counter-about {
+                    display: block;
+                    .counter-item {
+                        text-align: center;
+                        width: 100%;
+                        .count {
+                            color: var(--main--color);
+                            font-weight: 600;
+                            font-size: 1.5em;
+                            line-height: 1.1em;
+                            margin: 0;
+                            &.per {
+                                &::after {
+                                    content: "%";
+                                }
+                            }
+                        }
+                        span {
+                            font-size: 13px;
+                        }
+                    }
+                }
+                .about-icon {
+                    margin-top: 10px;
+                    text-align: center;
+                    i {
+                        width: 45px;
+                        height: 45px;
+                        padding: 10px;
+                        font-size: 20px;
+                    }
                 }
             }
         }
@@ -124,25 +252,60 @@
     .about-us {
         padding-top: 20px;
         padding-bottom: 20px;
-        display: block;
+        h1 {
+            font-size: 1em;
+        }
+        h2 {
+            font-size: 4em;
+        }
         .info-box {
+            display: block;
             padding: 10px;
-            h2 {
-                font-size: 18px;
-                margin: 0 0 5px;
-            }
-            p {
-                font-size: 13px;
-            }
-            .about-icon {
-                margin-top: 5px;
-                i {
-                    border: 1px solid var(--main--color);
-                    width: 55px;
-                    height: 55px;
-                    padding: 15px;
-                    font-size: 20px;
-                    margin-right: 7px;
+            .counter-info {
+                background-color: #f6f6f6;
+                width: 100%;
+                padding: 20px;
+                h3 {
+                    font-size: 1em;
+                }
+                h4 {
+                    font-size: 2em;
+                }
+                p {
+                    margin: 15px 0 15px 0;
+                    font-size: 12px;
+                }
+                .counter-about {
+                    display: block;
+                    .counter-item {
+                        text-align: center;
+                        width: 100%;
+                        .count {
+                            color: var(--main--color);
+                            font-weight: 600;
+                            font-size: 1.5em;
+                            line-height: 1.1em;
+                            margin: 0;
+                            &.per {
+                                &::after {
+                                    content: "%";
+                                }
+                            }
+                        }
+                        span {
+                            font-size: 13px;
+                        }
+                    }
+                }
+                .about-icon {
+                    margin-top: 10px;
+                    text-align: center;
+                    i {
+                        width: 45px;
+                        height: 45px;
+                        padding: 10px;
+                        font-size: 20px;
+                    }
                 }
             }
         }
@@ -160,25 +323,60 @@
     .about-us {
         padding-top: 20px;
         padding-bottom: 20px;
-        display: block;
+        h1 {
+            font-size: 1em;
+        }
+        h2 {
+            font-size: 4em;
+        }
         .info-box {
+            display: block;
             padding: 10px;
-            h2 {
-                font-size: 22px;
-                margin: 0 0 5px;
-            }
-            p {
-                font-size: 13px;
-            }
-            .about-icon {
-                margin-top: 5px;
-                i {
-                    border: 1px solid var(--main--color);
-                    width: 55px;
-                    height: 55px;
-                    padding: 15px;
-                    font-size: 20px;
-                    margin-right: 7px;
+            .counter-info {
+                background-color: #f6f6f6;
+                width: 100%;
+                padding: 20px;
+                h3 {
+                    font-size: 1em;
+                }
+                h4 {
+                    font-size: 2em;
+                }
+                p {
+                    margin: 15px 0 15px 0;
+                    font-size: 14px;
+                }
+                .counter-about {
+                    display: block;
+                    .counter-item {
+                        text-align: center;
+                        width: 100%;
+                        .count {
+                            color: var(--main--color);
+                            font-weight: 600;
+                            font-size: 1.5em;
+                            line-height: 1.1em;
+                            margin: 0;
+                            &.per {
+                                &::after {
+                                    content: "%";
+                                }
+                            }
+                        }
+                        span {
+                            font-size: 13px;
+                        }
+                    }
+                }
+                .about-icon {
+                    margin-top: 10px;
+                    text-align: center;
+                    i {
+                        width: 45px;
+                        height: 45px;
+                        padding: 10px;
+                        font-size: 20px;
+                    }
                 }
             }
         }
@@ -186,7 +384,7 @@
             flex: 1;
             text-align: center;
             img {
-                width: 200px;
+                width: 300px;
             }
         }
     }
@@ -196,25 +394,60 @@
     .about-us {
         padding-top: 20px;
         padding-bottom: 20px;
-        display: block;
+        h1 {
+            font-size: 1em;
+        }
+        h2 {
+            font-size: 4em;
+        }
         .info-box {
+            display: block;
             padding: 10px;
-            h2 {
-                font-size: 25px;
-                margin: 0 0 5px;
-            }
-            p {
-                font-size: 15px;
-            }
-            .about-icon {
-                margin-top: 5px;
-                i {
-                    border: 1px solid var(--main--color);
-                    width: 55px;
-                    height: 55px;
-                    padding: 15px;
-                    font-size: 20px;
-                    margin-right: 7px;
+            .counter-info {
+                background-color: #f6f6f6;
+                width: 100%;
+                padding: 20px;
+                h3 {
+                    font-size: 1em;
+                }
+                h4 {
+                    font-size: 2em;
+                }
+                p {
+                    margin: 15px 0 15px 0;
+                    font-size: 14px;
+                }
+                .counter-about {
+                    display: flex;
+                    .counter-item {
+                        text-align: center;
+                        width: 100%;
+                        .count {
+                            color: var(--main--color);
+                            font-weight: 600;
+                            font-size: 1.5em;
+                            line-height: 1.1em;
+                            margin: 0;
+                            &.per {
+                                &::after {
+                                    content: "%";
+                                }
+                            }
+                        }
+                        span {
+                            font-size: 13px;
+                        }
+                    }
+                }
+                .about-icon {
+                    margin-top: 10px;
+                    text-align: center;
+                    i {
+                        width: 45px;
+                        height: 45px;
+                        padding: 10px;
+                        font-size: 20px;
+                    }
                 }
             }
         }
@@ -223,6 +456,87 @@
             text-align: center;
             img {
                 width: 300px;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .about-us {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        h1 {
+            font-size: 1.5em;
+        }
+        h2 {
+            font-size: 4.875em;
+        }
+        .info-box {
+            display: flex;
+            padding: 20px;
+            .counter-info {
+                padding: 40px;
+                h3 {
+                    font-size: 1.125em;
+                }
+                h4 {
+                    font-size: 2.5em;
+                }
+                p {
+                    font-size: 13px;
+                }
+                .counter-about {
+                    .counter-item {
+                        margin: 5px;
+                        padding: 10px;
+                        width: 30%;
+                        .count {
+                            color: var(--main--color);
+                            font-weight: 600;
+                            font-size: 2em;
+                            line-height: 1.1em;
+                            margin: 0;
+                            &.per {
+                                &::after {
+                                    content: "%";
+                                }
+                            }
+                        }
+                        span {
+                            letter-spacing: 0;
+                            line-height: 1em;
+                            text-transform: uppercase;
+                            font-weight: 600;
+                            margin-top: 3px;
+                            margin-bottom: 7px;
+                        }
+                    }
+                }
+                .about-icon {
+                    margin-top: 10px;
+                    i {
+                        border: 2px solid var(--main--color);
+                        width: 60px;
+                        height: 60px;
+                        padding: 10px;
+                        font-size: 30px;
+                        margin-right: 7px;
+                        color: var(--main--color);
+                        transition: 0.3s;
+                        cursor: pointer;
+                        &:hover {
+                            background-color: var(--main--color);
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+        .image-box {
+            flex: 1;
+            text-align: right;
+            img {
+                width: 400px;
             }
         }
     }

@@ -23,76 +23,99 @@
  [8] if iam not need to make file task him but is src in my file to gulp.src(['src all file'],['!src file its not need him'])
  }
 */
-var gulp = require('gulp'),
-    concat = require('gulp-concat'),
-    autoprefix = require('gulp-autoprefixer'),
-    sass = require('gulp-sass'),
-    pug = require('gulp-pug'),
-    livereload = require('gulp-livereload'),
-    sourcemaps = require('gulp-sourcemaps'),
-    uglify = require('gulp-uglifyes'),
-    minify = require('gulp-minify'),
+var gulp = require("gulp"),
+    concat = require("gulp-concat"),
+    autoprefix = require("gulp-autoprefixer"),
+    sass = require("gulp-sass"),
+    pug = require("gulp-pug"),
+    livereload = require("gulp-livereload"),
+    sourcemaps = require("gulp-sourcemaps"),
+    uglify = require("gulp-uglifyes"),
+    minify = require("gulp-minify"),
     notify = require("gulp-notify"),
-    zip = require('gulp-zip');
+    zip = require("gulp-zip"),
+    ftp = require("vinyl-ftp");
 
 // html task
-gulp.task('html', function() {
-    return gulp.src('stage/Html/*.pug')
-        .pipe(pug({
-            pretty: true
-        }))
-        .pipe(gulp.dest('dist'))
+gulp.task("html", function() {
+    return gulp
+        .src("stage/Html/*.pug")
+        .pipe(
+            pug({
+                pretty: true,
+            })
+        )
+        .pipe(gulp.dest("dist"))
         .pipe(notify("task html is done"))
         .pipe(livereload());
 });
 
 //css task
-gulp.task('css', function() {
-    return gulp.src(['stage/Css/**/*.css', 'stage/Css/**/*.scss'])
+gulp.task("css", function() {
+    return gulp
+        .src(["stage/Css/**/*.css", "stage/Css/**/*.scss"])
         .pipe(sourcemaps.init())
-        .pipe(sass({
-            outputStyle: 'compressed'
-        }).on('error', sass.logError))
+        .pipe(
+            sass({
+                outputStyle: "compressed",
+            }).on("error", sass.logError)
+        )
         .pipe(autoprefix())
-        .pipe(concat('main.css'))
+        .pipe(concat("main.css"))
         .pipe(sourcemaps.write("."))
-        .pipe(gulp.dest('dist/css'))
+        .pipe(gulp.dest("dist/css"))
         .pipe(notify("task css is done"))
         .pipe(livereload());
-
 });
 
 // js task
 
-gulp.task('js', function() {
-    return gulp.src("stage/Js/*.js")
+gulp.task("js", function() {
+    return gulp
+        .src("stage/Js/*.js")
         .pipe(concat("main.js"))
         .pipe(minify())
         .pipe(uglify())
-        .pipe(gulp.dest('dist/Js'))
+        .pipe(gulp.dest("dist/Js"))
         .pipe(notify("task js is done"))
         .pipe(livereload());
 });
 
 //zip file
 gulp.task("zip", function() {
-    return gulp.src('./dist/**/*.*')
-        .pipe(zip('mywork.zip'))
-        .pipe(gulp.dest('.'))
-        .pipe(notify("file has been zip"))
+    return gulp
+        .src("./dist/**/*.*")
+        .pipe(zip("mywork.zip"))
+        .pipe(gulp.dest("."))
+        .pipe(notify("file has been zip"));
 });
+gulp.task("deploy", function() {
+    var conn = ftp.create({
+        host: "files.000webhost.com",
+        user: "jemy-galery",
+        password: "midogamal",
+        parallel: 10,
+    });
 
+    // using base = '.' will transfer everything to /public_html correctly
+    // turn off buffering in gulp.src for best performance
 
+    return gulp
+        .src(["dist/**/*.*"], { base: ".", buffer: false })
+        .pipe(conn.newer("/public_html")) // only upload newer files
+        .pipe(conn.dest("/public_html"))
+        .pipe(livereload());
+});
 //watch task
-gulp.task('watch', function() {
-    require('./server.js');
+gulp.task("watch", function() {
+    require("./server.js");
     gulp.watch("connect");
     livereload.listen();
-    gulp.watch('stage/Html/**/*.pug', gulp.series('html'));
-    gulp.watch(['stage/Css/**/*.css', 'stage/Css/**/*.scss'], gulp.series('css'));
-    gulp.watch('stage/Js/*.js', gulp.series('js'));
+    gulp.watch("stage/Html/**/*.pug", gulp.series("html"));
+    gulp.watch(["stage/Css/**/*.css", "stage/Css/**/*.scss"], gulp.series("css"));
+    gulp.watch("stage/Js/*.js", gulp.series("js"));
     //gulp.watch('./dist/**/*.*', gulp.series('zip'));
-
+    gulp.watch("./dist/**/*.*", gulp.series("deploy"));
 });
 
 // deafult task

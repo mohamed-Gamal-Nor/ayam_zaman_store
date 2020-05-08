@@ -1,11 +1,18 @@
 <!-- start gallery-->
 .gallery
   .container
-    h2 Latest Product
+    h1 Latest Product!
+    h2 ARRIVALS
     .images-box
-      - var images = ["1.jpeg","2.jpeg","3.jpeg","4.jpeg","5.jpeg","6.jpeg","7.jpeg","8.jpeg","9.jpeg","10.jpeg"]
+      - var images = ["1.jpeg","2.jpeg","3.jpeg","4.jpeg","6.jpeg","7.jpeg","8.jpeg","9.jpeg"]
       each img in images
-        img(src="./imgs/last/"+img alt=img)
+        .gallery-info
+          img(src="./imgs/last/"+img alt=img)
+          h6 New Item Add
+          span 16.00 EGP
+          a(href="#") Select options
+  .view-button
+    a(href="#") View All Clothes
 .map
   .container
     h2 Store Location
