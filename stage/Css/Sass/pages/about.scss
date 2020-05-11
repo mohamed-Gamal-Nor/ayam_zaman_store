@@ -1,22 +1,12 @@
+@import "../layout/global";
 .about-us {
     padding-top: 50px;
     padding-bottom: 50px;
     h1 {
-        font-size: 2em;
-        margin-bottom: 5px;
-        text-align: center;
+        @include h1-mixin;
     }
     h2 {
-        color: transparent !important;
-        background: url(../imgs/last/bg_font.jpg) repeat;
-        background-position: 40% 50%;
-        background-clip: text;
-        position: relative;
-        font-size: 6.875em;
-        line-height: 1.14em;
-        margin-top: 0;
-        font-weight: bold;
-        text-align: center;
+        @include h2-mixin;
     }
     .info-box {
         display: flex;

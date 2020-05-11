@@ -64,3 +64,23 @@ body {
         padding-right: 10px;
     }
 }
+
+// crate mixin for h1 and h2 and page
+@mixin h1-mixin {
+    font-size: 2em;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+@mixin h2-mixin {
+    color: transparent !important;
+    background: url(../imgs/last/bg_font.jpg) repeat;
+    background-position: 40% 50%;
+    background-clip: text;
+    position: relative;
+    font-size: 6.875em;
+    line-height: 1.14em;
+    margin-top: 0;
+    font-weight: bold;
+    text-align: center;
+}
