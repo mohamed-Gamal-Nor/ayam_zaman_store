@@ -1,0 +1,162 @@
+.subscripe {
+    background-image: url("../imgs/subscripe.jpg");
+    height: 75vh;
+    position: relative;
+    h1 {
+        text-align: right;
+        padding: 30px;
+        font-weight: bold;
+        color: transparent !important;
+        background: url(../imgs/last/bg_font.jpg) repeat;
+        background-position: 40% 50%;
+        background-clip: text;
+        position: relative;
+        font-size: 6.875em;
+        line-height: 1.14em;
+        font-weight: bold;
+        margin-bottom: 0;
+        padding-top: 30px;
+        span {
+            color: var(--main--color);
+        }
+    }
+    p {
+        text-align: right;
+        font-size: 1.875em;
+        padding: 30px;
+        font-weight: bold;
+        margin: 0;
+    }
+    form {
+        width: 400px;
+        position: absolute;
+        right: 10%;
+        top: 75%;
+        .message {
+            color: #c0392b;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            padding: 5px;
+            z-index: 1;
+            &.error-messge {
+                top: -27px;
+            }
+        }
+        input[type="email"] {
+            background-color: #333;
+            border: none;
+            outline: none;
+            padding: 15px;
+            font-weight: bold;
+            color: #fff;
+            font-size: 13px;
+            width: 75%;
+            position: relative;
+            z-index: 2;
+            &::placeholder {
+                color: #fff;
+                transition: 0.3s;
+            }
+            &:focus {
+                &::placeholder {
+                    opacity: 0;
+                }
+            }
+        }
+        input[type="submit"] {
+            background-color: var(--main--color);
+            border: none;
+            outline: none;
+            padding: 12px;
+            width: 20%;
+            cursor: pointer;
+            font-weight: bold;
+            color: #fff;
+            transition: 0.3s;
+            &:hover {
+                background-color: #333;
+            }
+            &:disabled {
+                background-color: #ccc;
+                color: #333;
+            }
+        }
+        .check {
+            margin-top: 10px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    }
+}
+
+@media(max-width:1200px) {
+    .subscripe {
+        h1 {
+            font-size: 5rem;
+        }
+        p {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@media(max-width:992px) {
+    .subscripe {
+        background-position: center;
+        h1 {
+            text-align: center;
+            font-size: 5rem;
+        }
+        p {
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        form {
+            width: 85%;
+            position: absolute;
+            right: 0;
+            top: 75%;
+            .message {
+                font-size: 13px;
+            }
+            input[type="email"] {
+                width: 60%;
+            }
+            input[type="submit"] {
+                font-size: 13px;
+                padding: 15px;
+            }
+        }
+    }
+}
+
+@media(max-width:768px) {
+    .subscripe {
+        background-position: center;
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+        }
+        p {
+            text-align: center;
+            font-size: 1rem;
+        }
+        form {
+            width: 85%;
+            position: absolute;
+            right: 0;
+            top: 75%;
+            .message {
+                font-size: 11px;
+            }
+            input[type="email"] {
+                width: 60%;
+            }
+            input[type="submit"] {
+                font-size: 13px;
+                padding: 15px;
+            }
+        }
+    }
+}

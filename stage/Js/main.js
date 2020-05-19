@@ -12,6 +12,8 @@ let setBackground = localStorage.getItem("backgroundChange");
 let setFont = localStorage.getItem("fontFamily");
 // set about us image
 let setAboutImg = localStorage.getItem("aboutImg");
+// set bullets in local storge
+let bulletLocal = localStorage.getItem("bullets-option");
 //check local storge main color
 if (mainColors !== null) {
     document.documentElement.style.setProperty("--main--color", mainColors);
@@ -112,12 +114,7 @@ colorsLi.forEach((li) => {
         localStorage.setItem("aboutImg", e.target.dataset.color.split("#")[1]);
         // set color in local storge
         localStorage.setItem("color_option", e.target.dataset.color);
-        // remove active classs from all children
-        e.target.parentElement.querySelectorAll(".active").forEach((Element) => {
-            Element.classList.remove("active");
-        });
-        // add active class
-        e.target.classList.add("active");
+        handleActive(e);
     });
 });
 //switch background random
@@ -125,11 +122,7 @@ colorsLi.forEach((li) => {
 const randomBackground = document.querySelectorAll(".random-background span");
 randomBackground.forEach((span) => {
     span.addEventListener("click", (e) => {
-        e.target.parentElement.querySelectorAll(".active").forEach((Element) => {
-            Element.classList.remove("active");
-        });
-        // add active class
-        e.target.classList.add("active");
+        handleActive(e);
         if (e.target.dataset.background === "yes") {
             backgroundOption = true;
             randomimg();
@@ -163,12 +156,7 @@ fontLi.forEach((li) => {
         document.getElementsByTagName("body")[0].style.fontFamily =
             e.target.dataset.font;
         localStorage.setItem("fontFamily", e.target.dataset.font);
-        // remove active classs from all children
-        e.target.parentElement.querySelectorAll(".active").forEach((Element) => {
-            Element.classList.remove("active");
-        });
-        // add active class
-        e.target.classList.add("active");
+        handleActive(e);
     });
 });
 //end settings box
@@ -196,17 +184,23 @@ function randomimg() {
     }
 }
 randomimg();
-// menu button code
-let menuButtonShow = document.querySelector(".links-menu i");
-let menuButtonHide = document.querySelector(".links .icon i");
-let menu = document.querySelector(".links");
-menuButtonShow.onclick = function() {
-    menu.style.right = 0;
-};
-menuButtonHide.onclick = function() {
-    menu.style.right = "-" + menu.offsetWidth + "px";
-};
+// somze dowwn button
+document
+    .querySelector(".landing-page .somze-down i")
+    .addEventListener("click", function() {
+        document.querySelector(".clothes-part").scrollIntoView({
+            behavior: "smooth",
+        });
+    });
+
 // end landing page
+// code button up page
+let buttonUp = document.querySelector(".button-top span");
+buttonUp.addEventListener("click", function() {
+    document.querySelector(".landing-page").scrollIntoView({
+        behavior: "smooth",
+    });
+});
 
 //start our feature
 let ourSkills = document.querySelector(".about-us");
@@ -223,10 +217,8 @@ window.onscroll = function() {
     let windowHeight = this.innerHeight;
     // window scroll top
     let windowScrollTop = this.pageYOffset;
-    if (
-        windowScrollTop >
-        skillsOffsetTop + skillsOuterHeight - windowHeight - 1
-    ) {
+
+    if (windowScrollTop > skillsOffsetTop + skillsOuterHeight - windowHeight) {
         counterItem.forEach((counter) => {
             const updateCount = () => {
                 const counterTarget = +counter.dataset.target;
@@ -242,6 +234,22 @@ window.onscroll = function() {
             updateCount();
         });
     }
+    // button up page
+    if (
+        this.pageYOffset >= document.querySelector(".landing-page").offsetHeight
+    ) {
+        buttonUp.parentElement.style.display = "block";
+        // add fixed class to nav bar
+        document
+            .querySelector(".landing-page .header-area")
+            .classList.add("header-fixed");
+    } else {
+        buttonUp.parentElement.style.display = "none";
+        document
+            .querySelector(".landing-page .header-area")
+            .classList.remove("header-fixed");
+    }
+    // make fixed nav bar
 };
 
 //end our skills
@@ -302,3 +310,123 @@ var swiper = new Swiper(".swiper-container", {
         prevEl: ".swiper-button-prev",
     },
 });
+
+// start code for nav  bulltes
+const allBullets = document.querySelectorAll(".nav-bullets .bullet");
+allBullets.forEach((bullet) => {
+    bullet.addEventListener("click", (e) => {
+        document.querySelector(e.target.dataset.section).scrollIntoView({
+            behavior: "smooth",
+        });
+    });
+});
+// check box code for subscribe button
+let checkBoxButton = document.querySelector(".subscripe .check input");
+let buttonSubmit = document.querySelector(".subscripe input[type='submit']");
+let emailInput = document.querySelector(".subscripe form input[type='email']");
+let errorMessage = document.querySelector(".subscripe form .message");
+let mailsExt = ["gmail.com", "hotmail.com", "yahoo.com"];
+checkBoxButton.addEventListener("click", function() {
+    if (checkBoxButton.checked == true) {
+        buttonSubmit.removeAttribute("disabled");
+    } else {
+        buttonSubmit.setAttribute("disabled", "disabled");
+    }
+});
+buttonSubmit.addEventListener("click", function(e) {
+    if (emailInput.value === "") {
+        e.preventDefault();
+        errorMessage.innerHTML = "Sorry You Should Type Your Mail";
+        errorMessage.classList.add("error-messge");
+    } else if (!mailsExt.includes(emailInput.value.split("@")[1].toLowerCase())) {
+        e.preventDefault();
+        errorMessage.innerHTML = "Email must Be [gmail , hotmail , yahoo] .com";
+        errorMessage.classList.add("error-messge");
+    }
+});
+
+//code footer get image from instagram
+let instaImgae = document.querySelectorAll(
+    ".footer-page .socailmedia .insta-imge a"
+);
+instaImgae.forEach((image) => {
+    image.style.backgroundImage = "url(" + image.dataset.background + ")";
+});
+
+// handle active state
+function handleActive(ev) {
+    // remove active classs from all children
+    ev.target.parentElement.querySelectorAll(".active").forEach((Element) => {
+        Element.classList.remove("active");
+    });
+    // add active class
+    ev.target.classList.add("active");
+}
+//show or hide bullets
+let bulletSpan = document.querySelectorAll(".bullets-option span");
+let bulletsContainer = document.querySelector(".nav-bullets");
+if (bulletLocal !== null) {
+    bulletSpan.forEach((span) => {
+        span.classList.remove("active");
+        if (bulletLocal === "block") {
+            bulletsContainer.style.display = "block";
+            document.querySelector(".bullets-option .yes").classList.add("active");
+        } else {
+            bulletsContainer.style.display = "none";
+            document.querySelector(".bullets-option .no").classList.add("active");
+        }
+    });
+}
+bulletSpan.forEach((span) => {
+    span.addEventListener("click", (e) => {
+        handleActive(e);
+        if (span.dataset.display === "show") {
+            bulletsContainer.style.display = "block";
+            localStorage.setItem("bullets-option", "block");
+        } else {
+            bulletsContainer.style.display = "none";
+            localStorage.setItem("bullets-option", "none");
+        }
+    });
+});
+
+// reset button code
+document.querySelector(".settings-box .reset-options").onclick = function() {
+    localStorage.removeItem("color_option");
+    localStorage.removeItem("background_option");
+    localStorage.removeItem("backgroundChange");
+    localStorage.removeItem("fontFamily");
+    localStorage.removeItem("aboutImg");
+    localStorage.removeItem("bullets-option");
+    window.location.reload();
+};
+
+// toggle menu in responsive
+let openButton = document.querySelector(
+    ".landing-page .header-area .links-container .toggle-links i"
+);
+let toggleMenu = document.querySelector(
+    ".landing-page .header-area .links-container .links"
+);
+let closeMenu = document.querySelector(
+    ".landing-page .header-area .links-container .links .links-close i"
+);
+openButton.onclick = function(e) {
+    toggleMenu.classList.add("open");
+    e.stopPropagation();
+};
+closeMenu.onclick = function() {
+    toggleMenu.classList.remove("open");
+};
+
+// click any where click close menu
+document.addEventListener("click", (e) => {
+    if (e.target !== closeMenu && e.target !== toggleMenu) {
+        if (toggleMenu.classList.contains("open")) {
+            toggleMenu.classList.remove("open");
+        }
+    }
+});
+toggleMenu.onclick = function(e) {
+    e.stopPropagation();
+};

@@ -35,4 +35,10 @@
       ul.font-list
         each font,index in fonts
           li(class=(index===0?"active":undefined) data-font=font) Fa
+    .option-box
+      h4 Show Bullets
+      .bullets-option
+        span.yes.active(data-display="show") Yes
+        span.no( data-display="hide") No
+    button.reset-options Reset Options
 <!--end setting box-->

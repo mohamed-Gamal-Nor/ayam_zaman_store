@@ -1,0 +1,87 @@
+.clothes-part {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    .clothes {
+        display: flex;
+        flex-wrap: wrap;
+        .clothe {
+            background-size: cover;
+            background-position: center top;
+            width: 22%;
+            height: 450px;
+            padding: 5px;
+            margin: 15px;
+            text-align: center;
+            transition: 0.3s;
+            &:hover {
+                opacity: 0.7;
+            }
+            &:nth-of-type(1) {
+                background-image: url("../imgs/part/1.jpg");
+            }
+            &:nth-of-type(2) {
+                background-image: url("../imgs/part/2.jpg");
+            }
+            &:nth-of-type(3) {
+                background-image: url("../imgs/part/3.jpg");
+            }
+            &:nth-of-type(4) {
+                background-image: url("../imgs/part/4.jpg");
+            }
+            a {
+                text-decoration: none;
+                line-height: 450px;
+                color: #fff;
+                background-color: #2C292C;
+                padding: 20px 40px 20px 40px;
+                border: 10px solid #f6f6f6;
+                font-weight: bold;
+                font-size: 1.5rem;
+                transition: 0.3s;
+                &:hover {
+                    background-color: var(--main--color);
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:1200px) {
+    .clothes-part {
+        .clothes {
+            .clothe {
+                width: 21%;
+                a {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:992px) {
+    .clothes-part {
+        .clothes {
+            .clothe {
+                width: 45%;
+                a {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:768px) {
+    .clothes-part {
+        .clothes {
+            .clothe {
+                width: 100%;
+                a {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
