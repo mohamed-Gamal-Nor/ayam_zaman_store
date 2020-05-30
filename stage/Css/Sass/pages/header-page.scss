@@ -1,0 +1,232 @@
+.header-area {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    display: flex;
+    transition: 0.5s;
+    &.header-fixed {
+        position: fixed;
+        width: 100%;
+        left: 0;
+        top: 0;
+        background-color: rgba($color: #fff, $alpha: 0.9);
+        border-bottom: 2px solid #f6f6f6;
+        z-index: 10;
+        .logo {
+            width: 25%;
+            text-align: center;
+            padding: 5px;
+        }
+        .links-container {
+            width: 70%;
+            padding: 0;
+            .links {
+                padding: 10px;
+                li {
+                    a {
+                        color: #333;
+                        &::before,
+                        &::after {
+                            border-color: var(--main--color);
+                        }
+                        span {
+                            &::before,
+                            &::after {
+                                border-color: var(--main--color);
+                            }
+                        }
+                    }
+                }
+            }
+            .toggle-links {
+                color: #333;
+                margin-top: 24px;
+            }
+        }
+    }
+    .logo {
+        width: 300px;
+        padding: 15px;
+        text-align: left;
+        a {
+            text-decoration: none;
+            img {
+                position: relative;
+                border-radius: 50%;
+                width: 70px;
+                left: 0%;
+            }
+        }
+    }
+    .links-container {
+        width: 100%;
+        text-align: right;
+        .links {
+            .links-close {
+                display: none;
+            }
+            list-style: none;
+            width: 100%;
+            text-align: right;
+            padding-top: 25px;
+            padding-left: 0;
+            font-size: 15px;
+            font-weight: bold;
+            li {
+                display: inline-block;
+                a {
+                    color: #fff;
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    position: relative;
+                    padding: 10px;
+                    &::before {
+                        width: 5px;
+                        height: 5px;
+                        background: transparent;
+                        content: "";
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        border-right: 2px solid white;
+                        border-top: 2px solid white;
+                        transition: 0.3s;
+                        opacity: 0;
+                    }
+                    &::after {
+                        width: 5px;
+                        height: 5px;
+                        background: transparent;
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        border-left: 2px solid white;
+                        border-bottom: 2px solid white;
+                        transition: 0.3s;
+                        opacity: 0;
+                    }
+                    span {
+                        &::before {
+                            width: 5px;
+                            height: 5px;
+                            background: transparent;
+                            content: "";
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            border-top: 2px solid white;
+                            border-left: 2px solid white;
+                            transition: 0.3s;
+                            opacity: 0;
+                        }
+                        &::after {
+                            width: 5px;
+                            height: 5px;
+                            background: transparent;
+                            content: "";
+                            position: absolute;
+                            right: 0;
+                            bottom: 0;
+                            border-right: 2px solid white;
+                            border-bottom: 2px solid white;
+                            transition: 0.3s;
+                            opacity: 0;
+                        }
+                    }
+                    &:hover {
+                        color: var(--main--color);
+                        padding: 5px;
+                        margin: 5px;
+                        &::before {
+                            opacity: 1;
+                        }
+                        &::after {
+                            opacity: 1;
+                        }
+                        span {
+                            &::before {
+                                opacity: 1;
+                            }
+                            &::after {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                    &.active {
+                        color: var(--main--color);
+                    }
+                }
+            }
+        }
+        .toggle-links {
+            background: none;
+            border: none;
+            width: 40px;
+            outline: none;
+            margin-top: 30px;
+            color: #fff;
+            font-size: 25px;
+            display: none;
+            i {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media(max-width:991px) {
+    .header-area {
+        .logo {
+            padding: 5px;
+        }
+        .links-container {
+            .links {
+                background-color: #fff;
+                display: block;
+                position: fixed;
+                height: 100vh;
+                width: 50%;
+                top: 0;
+                margin: 0;
+                right: -50%;
+                border: 2px solid #f6f6f6;
+                text-align: left;
+                padding: 0;
+                z-index: 4;
+                transition: 0.3s;
+                .links-close {
+                    display: block;
+                    width: 100%;
+                    color: #333;
+                    text-align: right;
+                    i {
+                        width: 60px;
+                        height: 30px;
+                        padding: 10px;
+                        font-size: 20px;
+                        cursor: pointer;
+                    }
+                }
+                li {
+                    display: block;
+                    margin-bottom: 15px;
+                    padding: 5px;
+                    a {
+                        color: #333;
+                        border: none;
+                        &.active {
+                            color: var(--main--color);
+                        }
+                    }
+                }
+                &.open {
+                    right: 0%;
+                }
+            }
+            .toggle-links {
+                display: inline-block;
+            }
+        }
+    }
+}

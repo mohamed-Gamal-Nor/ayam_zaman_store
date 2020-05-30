@@ -140,16 +140,120 @@
             }
         }
     }
+    .all-rights {
+        text-align: center;
+        padding: 10px;
+        font-weight: bold;
+    }
+}
+
+@media(max-width:1200px) {
+    .footer-page {
+        .footer-info {
+            .worktime {
+                .info {
+                    padding: 10px;
+                    .mobile,
+                    .address {
+                        span {
+                            &:nth-of-type(2) {
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                    .timework {
+                        .day {
+                            margin-bottom: 3px;
+                            display: flex;
+                            span {
+                                width: 30px;
+                                height: 10px;
+                                margin: 5px;
+                                color: var(--main--color);
+                                line-height: 30px;
+                            }
+                            p {
+                                line-height: 10px;
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                }
+            }
+            .socailmedia {
+                width: 30%;
+                padding: 10px;
+                .insta-imge {
+                    a {
+                        width: 28%;
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media(max-width:991px) {
-    .landing-page {
-        .header-area {
-            .links {
-                display: none;
+    .footer-page {
+        .footer-info {
+            width: 100%;
+            display: block;
+            .worktime {
+                width: 100%;
+                padding: 5px;
+                margin: 0px;
+                h2 {
+                    font-size: 22px;
+                }
+                .info {
+                    padding: 5px;
+                    .mobile,
+                    .address {
+                        span {
+                            &:nth-of-type(2) {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                    .timework {
+                        h6 {
+                            font-size: 13px;
+                        }
+                    }
+                }
             }
-            .toggle-links {
-                display: inline-block;
+            .socailmedia {
+                width: 100%;
+                padding: 5px;
+                margin: 0px;
+                h2 {
+                    font-size: 22px;
+                }
+                h6 {
+                    font-size: 15px;
+                }
+                .socail {
+                    padding: 10px;
+                    h6 {
+                        font-size: 13px;
+                    }
+                }
+                .insta-imge {
+                    background-color: #fff;
+                    display: flex;
+                    flex-wrap: wrap;
+                    a {
+                        width: 29%;
+                    }
+                }
+            }
+            .location {
+                width: 100%;
+                padding: 5px;
+                margin: 0px;
+                h2 {
+                    font-size: 23px;
+                }
             }
         }
     }

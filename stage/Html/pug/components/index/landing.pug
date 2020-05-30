@@ -2,37 +2,7 @@
 .landing-page
   .overlay
   .container
-    .header-area
-      .logo 
-        a(href="#")
-          img(src="./imgs/logo.png")
-      .links-container
-        ul.links
-          .links-close
-            <i class="fas fa-times"></i>
-          li 
-            a.active(href="#")
-              span Home
-          li 
-            a(href="#") 
-              span About
-          li 
-            a(href="#")
-              span Proudcts
-          li 
-            a(href="#")
-              span Contact Us
-          li 
-            a(href="#")
-              span Services
-          li 
-            a(href="#")
-              span Location
-          li 
-            a(href="#")
-              span FaQ
-        .toggle-links
-          <i class="fas fa-bars"></i>
+    include ../header-page.pug
     .introduction-text
       h1 Welcome To <span>Ayam Zaman Store</span>
       p It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
