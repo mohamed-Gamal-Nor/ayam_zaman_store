@@ -13,7 +13,7 @@
             padding: 25px;
             margin-top: 70px;
             text-align: center;
-            $colors: #3b5999, #e4405f, #dd4b39, #1ab7ea, #25D366, #131418;
+            $colors: #3b5999, #e4405f, #dd4b39, #0084ff, #1ab7ea, #25D366, #131418;
             @for $i from 1 through length($colors) {
                 &:nth-of-type(#{$i}) a {
                     color: nth($colors, $i);
@@ -43,7 +43,7 @@
 }
 
 @media(max-width:992px) {
-    .socail {
+    .socail-media {
         height: auto;
         .socail-icons {
             max-width: 100%;
@@ -64,7 +64,7 @@
 }
 
 @media(max-width:768px) {
-    .socail {
+    .socail-media {
         height: auto;
         .socail-icons {
             max-width: 100%;
