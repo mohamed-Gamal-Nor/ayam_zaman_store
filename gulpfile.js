@@ -34,7 +34,8 @@ var gulp = require("gulp"),
     minify = require("gulp-minify"),
     notify = require("gulp-notify"),
     zip = require("gulp-zip"),
-    ftp = require("vinyl-ftp");
+    ftp = require("vinyl-ftp"),
+    terser = require("gulp-terser");
 
 // html task
 gulp.task("html", function() {
@@ -76,6 +77,7 @@ gulp.task("js", function() {
         .pipe(concat("main.js"))
         .pipe(minify())
         .pipe(uglify())
+        .pipe(terser())
         .pipe(gulp.dest("dist/Js"))
         .pipe(notify("task js is done"))
         .pipe(livereload());

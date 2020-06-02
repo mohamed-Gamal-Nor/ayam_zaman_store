@@ -1,3 +1,11 @@
+/*jshint esversion: 6 */
+
+const Suites = {
+    Spade: 1,
+    Heart: 2,
+    Diamond: 3,
+    Club: 4,
+};
 // check if there's Local storge Color option
 let mainColors = localStorage.getItem("color_option");
 // check if theres local storge background random turn on or of
@@ -21,11 +29,6 @@ if (mainColors !== null) {
             element.classList.add("active");
         }
     });
-    if (setAboutImg !== null) {
-        document
-            .querySelector(".about-us .image-box img")
-            .setAttribute("src", "./imgs/about/" + setAboutImg + ".png");
-    }
 }
 // check local storge set font
 if (setFont !== null) {
@@ -39,6 +42,11 @@ if (setFont !== null) {
 }
 // check if page is home do this code
 if (document.title.split("-")[1] === "Home") {
+    if (setAboutImg !== null) {
+        document
+            .querySelector(".about-us .image-box img")
+            .setAttribute("src", "./imgs/about/" + setAboutImg + ".png");
+    }
     //random background option
     let backgroundOption = true;
     // varible to control interval
@@ -388,6 +396,11 @@ if (document.title.split("-")[1] !== "Home") {
         document.querySelector(".header-area").offsetHeight + "px";
 }
 if (document.title.split("-")[1] == "About") {
+    if (setAboutImg !== null) {
+        document
+            .querySelector(".about-us .image-box img")
+            .setAttribute("src", "./imgs/about/" + setAboutImg + ".png");
+    }
     //start our feature
     let ourSkills = document.querySelector(".about-us");
     const counterItem = document.querySelectorAll(
@@ -448,6 +461,95 @@ if (document.title.split("-")[1] == "Contact US") {
             errorMessage.innerHTML = "Email must Be [gmail , hotmail , yahoo] .com";
             errorMessage.classList.add("error-messge");
         }
+    });
+
+    // code for contact form
+    let contactForm = document.querySelectorAll(
+        ".contact form .left .form-input input"
+    );
+    let nameErrorForm = true,
+        phoneErrorForm = true,
+        emailErrorForm = true,
+        subjectErrorForm = true,
+        textAreaErrorForm = true;
+
+    let errorArray = true;
+    let alertMessage = document.querySelector(".contact .alert-masssge span");
+    let textAreaContact = document.querySelector(".contact form .right textarea");
+    let contactButton = document.querySelector(
+        ".contact form .right input[type='submit']"
+    );
+
+    function showMessage(element, reg = true) {
+        if (element.value === "") {
+            element.classList.add("error");
+            alertMessage.innerHTML =
+                "Sorry But " + element.getAttribute("name") + " Cant be Empty";
+            element.nextElementSibling.nextElementSibling.innerHTML = "*";
+            errorArray = true;
+        } else if (reg == null) {
+            element.classList.add("error");
+            alertMessage.innerHTML =
+                "Sorry But " +
+                element.getAttribute("name") +
+                " Not True Please Type Vaild " +
+                element.getAttribute("name");
+            element.nextElementSibling.nextElementSibling.innerHTML = "*";
+            errorArray = true;
+        } else {
+            alertMessage.innerHTML = "";
+            element.classList.remove("error");
+            element.classList.add("no-error");
+            element.nextElementSibling.nextElementSibling.innerHTML =
+                '<i class="fas fa-check"></i>';
+            errorArray = false;
+        }
+    }
+    textAreaContact.addEventListener("blur", () => {
+        if (textAreaContact.value == "") {
+            alertMessage.innerHTML = "Sorry but Type Your Message To Contact";
+            textAreaContact.classList.add("error");
+            textAreaContact.classList.remove("no-error");
+        } else {
+            alertMessage.innerHTML = "";
+            textAreaContact.classList.remove("error");
+            textAreaContact.classList.add("no-error");
+            textAreaErrorForm = false;
+        }
+    });
+    contactForm.forEach((inputform) => {
+        inputform.addEventListener("blur", () => {
+            if (inputform.getAttribute("name") === "username") {
+                var nameRegex = /^[a-zA-Z\-\ ]+$/;
+                var validRegName = inputform.value.match(nameRegex);
+                showMessage(inputform, validRegName);
+                errorArray === true ? null : (nameErrorForm = false);
+            } else if (inputform.getAttribute("name") === "phone") {
+                var phoneReg = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+                var validRegPhone = inputform.value.match(phoneReg);
+                showMessage(inputform, validRegPhone);
+                errorArray === true ? null : (phoneErrorForm = false);
+            } else if (inputform.getAttribute("name") === "email") {
+                var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                var validRegEmail = inputform.value.match(emailPattern);
+                showMessage(inputform, validRegEmail);
+                errorArray === true ? null : (emailErrorForm = false);
+            } else if (inputform.getAttribute("name") === "subject") {
+                showMessage(inputform);
+                errorArray === true ? null : (subjectErrorForm = false);
+            }
+        });
+        contactButton.addEventListener("click", (e) => {
+            if (
+                nameErrorForm === true ||
+                phoneErrorForm === true ||
+                emailErrorForm === true ||
+                subjectErrorForm === true ||
+                textAreaErrorForm === true
+            ) {
+                e.preventDefault();
+            }
+        });
     });
 }
 
