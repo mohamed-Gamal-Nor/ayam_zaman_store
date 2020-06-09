@@ -36,6 +36,10 @@
                             }
                         }
                     }
+                    .sub-list-menu {
+                        top: 60px;
+                        border: 1px solid #f6f6f6;
+                    }
                 }
             }
             .toggle-links {
@@ -73,7 +77,47 @@
             font-size: 15px;
             font-weight: bold;
             li {
+                position: relative;
                 display: inline-block;
+                .sub-list-menu {
+                    position: absolute;
+                    width: 200px;
+                    top: 30px;
+                    padding: 10px;
+                    background-color: #fff;
+                    text-align: left;
+                    transition: 0.3s;
+                    opacity: 0;
+                    visibility: hidden;
+                    &:hover {
+                        visibility: visible;
+                        opacity: 1;
+                    }
+                    a {
+                        color: #333;
+                        display: block;
+                        border: none;
+                        margin: 5px;
+                        padding: 5px;
+                        &::after {
+                            border: none;
+                        }
+                        &::before {
+                            border: none;
+                        }
+                        &:hover {
+                            color: var(--main--color);
+                        }
+                        span {
+                            &::after {
+                                border: none;
+                            }
+                            &::before {
+                                border: none;
+                            }
+                        }
+                    }
+                }
                 a {
                     color: #fff;
                     text-decoration: none;
@@ -152,6 +196,10 @@
                                 opacity: 1;
                             }
                         }
+                        &+.sub-list-menu {
+                            visibility: visible;
+                            opacity: 1;
+                        }
                     }
                     &.active {
                         color: var(--main--color);
@@ -210,8 +258,16 @@
                 }
                 li {
                     display: block;
-                    margin-bottom: 15px;
+                    margin-bottom: 10px;
                     padding: 5px;
+                    .sub-list-menu {
+                        position: relative;
+                        margin: 0;
+                        width: auto;
+                        top: 0px;
+                        opacity: 1;
+                        visibility: visible;
+                    }
                     a {
                         color: #333;
                         border: none;
