@@ -184,7 +184,7 @@ if (document.title.split("-")[1] === "Home") {
     // set duration time
     let duration = 5000;
 
-    function randomimg() {
+    var randomimg = () => {
         if (backgroundOption === true) {
             backgroundInterval = setInterval(() => {
                 // get random number
@@ -194,7 +194,7 @@ if (document.title.split("-")[1] === "Home") {
                     'url("imgs/landing/' + imagesArray[randomNumber] + '")';
             }, duration);
         }
-    }
+    };
     randomimg();
     // somze dowwn button
     document
@@ -342,14 +342,14 @@ if (document.title.split("-")[1] === "Home") {
     });
 
     // handle active state
-    function handleActive(ev) {
+    var handleActive = (ev) => {
         // remove active classs from all children
         ev.target.parentElement.querySelectorAll(".active").forEach((Element) => {
             Element.classList.remove("active");
         });
         // add active class
         ev.target.classList.add("active");
-    }
+    };
     //show or hide bullets
     let bulletSpan = document.querySelectorAll(".bullets-option span");
     let bulletsContainer = document.querySelector(".nav-bullets");
@@ -480,7 +480,7 @@ if (document.title.split("-")[1] == "Contact US") {
         ".contact form .right input[type='submit']"
     );
 
-    function showMessage(element, reg = true) {
+    var showMessage = (element, reg = true) => {
         if (element.value === "") {
             element.classList.add("error");
             alertMessage.innerHTML =
@@ -504,7 +504,7 @@ if (document.title.split("-")[1] == "Contact US") {
                 '<i class="fas fa-check"></i>';
             errorArray = false;
         }
-    }
+    };
     textAreaContact.addEventListener("blur", () => {
         if (textAreaContact.value == "") {
             alertMessage.innerHTML = "Sorry but Type Your Message To Contact";
@@ -533,7 +533,7 @@ if (document.title.split("-")[1] == "Contact US") {
                 var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
                 var validRegEmail = inputform.value.match(emailPattern);
                 showMessage(inputform, validRegEmail);
-                errorArray === true ? null : (emailErrorForm = false);
+                errorArray === true ? null : emailErrorForm === false;
             } else if (inputform.getAttribute("name") === "subject") {
                 showMessage(inputform);
                 errorArray === true ? null : (subjectErrorForm = false);
