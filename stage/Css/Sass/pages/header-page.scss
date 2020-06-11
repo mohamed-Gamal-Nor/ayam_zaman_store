@@ -225,6 +225,22 @@
 
 @media(max-width:991px) {
     .header-area {
+        &.header-fixed {
+            .links-container {
+                .links {
+                    li {
+                        .sub-list-menu {
+                            position: relative;
+                            width: auto;
+                            top: 0px;
+                            opacity: 1;
+                            visibility: visible;
+                            border: none;
+                        }
+                    }
+                }
+            }
+        }
         .logo {
             padding: 5px;
         }
@@ -260,14 +276,6 @@
                     display: block;
                     margin-bottom: 10px;
                     padding: 5px;
-                    .sub-list-menu {
-                        position: relative;
-                        margin: 0;
-                        width: auto;
-                        top: 0px;
-                        opacity: 1;
-                        visibility: visible;
-                    }
                     a {
                         color: #333;
                         border: none;
@@ -278,6 +286,13 @@
                 }
                 &.open {
                     right: 0%;
+                    .sub-list-menu {
+                        position: relative;
+                        width: auto;
+                        top: 0px;
+                        opacity: 1;
+                        visibility: visible;
+                    }
                 }
             }
             .toggle-links {

@@ -551,6 +551,8 @@ if (document.title.split("-")[1] == "Contact US") {
             }
         });
     });
+} else if (document.title.split("-")[1] == "Product Store") {
+    console.log("welcome");
 }
 
 // code to add active class to links menu after check page
