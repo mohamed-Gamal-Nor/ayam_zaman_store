@@ -105,13 +105,13 @@
                 overflow: hidden;
                 padding-top: 25px;
                 .item {
-                    width: 49%;
+                    width: 47%;
                     text-decoration: none;
-                    border: 1px solid #ccc;
+                    border: 2px solid #f6f6f6;
                     text-align: center;
                     margin: 5px;
                     .img {
-                        height: 400px;
+                        height: auto;
                         width: 100%;
                         overflow: hidden;
                         img {
@@ -190,12 +190,81 @@
                             &:hover {
                                 background-color: var(--main--color);
                                 color: #fff;
-                                border-color: #fff;
+                                border-color: var(--main--color);
                             }
                             &.active {
                                 background-color: var(--main--color);
                                 color: #fff;
-                                border-color: #fff;
+                                border-color: var(--main--color);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:992px) {
+    .product-filter {
+        .container {
+            display: block;
+            .filter-item {
+                width: 100%;
+                .filter-part {
+                    margin: 5px 0px 25px 0px;
+                    .filter-content {
+                        padding: 10px;
+                        h1 {
+                            font-size: 20px;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+            }
+            .product-item {
+                .product-sort {
+                    h1 {
+                        font-size: 18px;
+                    }
+                    .sort-input {
+                        select {
+                            margin: 5px;
+                            padding: 5px;
+                        }
+                    }
+                }
+                width: 100%;
+                padding-top: 25px;
+                margin-left: 0px;
+                .show-product-item {
+                    .item {
+                        max-width: 49%;
+                        margin: 1px;
+                        .img {
+                            height: auto;
+                            width: 100%;
+                            img {
+                                width: 100%;
+                            }
+                        }
+                        .info {
+                            h1 {
+                                font-size: 18px;
+                            }
+                            h4 {
+                                font-size: 12px;
+                            }
+                            .price {
+                                span {
+                                    font-size: 15px;
+                                }
+                            }
+                        }
+                        &.item-sale {
+                            position: relative;
+                            &::after {
+                                top: 0;
                             }
                         }
                     }

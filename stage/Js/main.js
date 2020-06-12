@@ -388,6 +388,23 @@ if (document.title.split("-")[1] === "Home") {
         localStorage.removeItem("bullets-option");
         window.location.reload();
     };
+    // slider comments
+    var swiper = new Swiper(".swiper-container", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
 }
 if (document.title.split("-")[1] !== "Home") {
     document.querySelector(".header-area").classList.add("header-fixed");
@@ -434,6 +451,23 @@ if (document.title.split("-")[1] == "About") {
             });
         }
     };
+    // slider comments
+    var swiper = new Swiper(".swiper-container", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
 }
 if (document.title.split("-")[1] == "Contact US") {
     // check box code for subscribe button
@@ -552,7 +586,25 @@ if (document.title.split("-")[1] == "Contact US") {
         });
     });
 } else if (document.title.split("-")[1] == "Product Store") {
-    console.log("welcome");
+    var slides = 3;
+    if (window.innerWidth <= 992) {
+        slides = 1;
+    }
+    var swiper = new Swiper(".swiper-container", {
+        slidesPerView: slides,
+        spaceBetween: 30,
+        slidesPerGroup: 1,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
 }
 
 // code to add active class to links menu after check page
@@ -580,23 +632,7 @@ openButton.onclick = function(e) {
 closeMenu.onclick = function() {
     toggleMenu.classList.remove("open");
 };
-// slider comments
-var swiper = new Swiper(".swiper-container", {
-    spaceBetween: 30,
-    centeredSlides: true,
-    autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-    },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-});
+
 // click any where click close menu
 document.addEventListener("click", (e) => {
     if (e.target !== closeMenu && e.target !== toggleMenu) {
