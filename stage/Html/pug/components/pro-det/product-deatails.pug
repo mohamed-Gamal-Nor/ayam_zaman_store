@@ -1,0 +1,38 @@
+.product-deatils
+  .container
+    .product
+      .image-slider
+        .img-preview
+          img(src="./imgs/item/pro1.jpg" class="active" id="image1")
+          img(src="./imgs/item/pro2.jpg" id="image2")
+          img(src="./imgs/item/pro1.jpg" id="image3")
+          img(src="./imgs/item/pro2.jpg" id="image4")
+        .img-slider-chose
+          img(src="./imgs/item/pro1.jpg" class="active" data-image="image1")
+          img(src="./imgs/item/pro2.jpg" data-image="image2")
+          img(src="./imgs/item/pro1.jpg" data-image="image3")
+          img(src="./imgs/item/pro2.jpg" data-image="image4")
+      .imgae-info
+        h1 55 EGP
+        p Duis auctor elit a justo imperdiet, non maximus enim ornare. Fusce sed ornare eros aenean fermentum luctus turpis et pretium. Aliquam tempor lorem iaculis, porta elit at, malesuada lectus, donec ultrices, ipsum eu dictum rutrum, erat dui rhoncus magna, non blandit felis nunc nec nibh praesent aliquet mollis massa ac vulputate. Cras vel nunc et libero sodales aliquam nunc eget facilisis lectus a finibus sagittis.
+        .product-color
+          h3 Color
+          - var colors = ["#000000","#fff","#da1313","#f1c40f","#1abc9c","#34495e","#9b59b6"]
+          for color in colors
+            span(data-color=color)
+        .product-size
+          h3 Size
+          - var sizes = ["S","M","L","XL","2X","3X","4X"]
+          for size in sizes
+            span #{size}
+        .product-avilable
+          h3 Available
+          span.stat-avi.avilable Available
+          span.stock 45 In Stock
+        .product-rating
+          h3 Rateing
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>

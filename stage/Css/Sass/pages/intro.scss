@@ -4,7 +4,7 @@
     padding: 25px;
     max-width: 100%;
     text-align: center;
-    height: 35vh;
+    padding-bottom: 50px;
     h1 {
         @include h2-mixin;
         font-size: 8rem;
@@ -15,15 +15,13 @@
         a {
             text-decoration: none;
             color: #aaa7a7;
-            margin-right: 15px;
             transition: 0.3s;
             &:hover {
                 color: var(--main--color);
             }
-        }
-        span {
-            &:nth-of-type(2) {
-                margin-left: 15px;
+            &::after {
+                content: "/";
+                padding: 10px;
             }
         }
     }
@@ -31,7 +29,6 @@
 
 @media(max-width:991px) {
     .intro-page {
-        height: 25vh;
         h1 {
             font-size: 3rem;
         }

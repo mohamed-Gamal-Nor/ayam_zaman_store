@@ -40,6 +40,15 @@ if (setFont !== null) {
         }
     });
 }
+// handle active state
+var handleActive = (ev) => {
+    // remove active classs from all children
+    ev.target.parentElement.querySelectorAll(".active").forEach((Element) => {
+        Element.classList.remove("active");
+    });
+    // add active class
+    ev.target.classList.add("active");
+};
 // check if page is home do this code
 if (document.title.split("-")[1] === "Home") {
     if (setAboutImg !== null) {
@@ -341,15 +350,6 @@ if (document.title.split("-")[1] === "Home") {
         });
     });
 
-    // handle active state
-    var handleActive = (ev) => {
-        // remove active classs from all children
-        ev.target.parentElement.querySelectorAll(".active").forEach((Element) => {
-            Element.classList.remove("active");
-        });
-        // add active class
-        ev.target.classList.add("active");
-    };
     //show or hide bullets
     let bulletSpan = document.querySelectorAll(".bullets-option span");
     let bulletsContainer = document.querySelector(".nav-bullets");
@@ -604,6 +604,29 @@ if (document.title.split("-")[1] == "Contact US") {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
         },
+    });
+} else if (document.title.split("-")[1] == "Product Deatails") {
+    let imageChosen = document.querySelectorAll(
+        ".product-deatils .product .image-slider .img-slider-chose img"
+    );
+    imageChosen.forEach((imageChosen) => {
+        imageChosen.onclick = function(e) {
+            handleActive(e);
+            let imagePreivewSiblings = document.getElementById(e.target.dataset.image)
+                .parentNode.childNodes;
+            imagePreivewSiblings.forEach((ims) => {
+                ims.classList.remove("active");
+            });
+            document.getElementById(e.target.dataset.image).classList.add("active");
+        };
+    });
+
+    // loop background color product
+    let spanColor = document.querySelectorAll(
+        ".product-deatils .product .imgae-info .product-color span"
+    );
+    spanColor.forEach((span) => {
+        span.style.backgroundColor = span.dataset.color;
     });
 }
 
