@@ -73,7 +73,7 @@ gulp.task("css", function() {
 
 gulp.task("js", function() {
     return gulp
-        .src("stage/Js/*.js")
+        .src("stage/Js/**/*.js")
         .pipe(concat("main.js"))
         .pipe(minify())
         .pipe(uglify())

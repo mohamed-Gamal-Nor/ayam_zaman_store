@@ -2,16 +2,12 @@
   .container
     .product
       .image-slider
-        .img-preview
-          img(src="./imgs/item/pro1.jpg" class="active" id="image1")
-          img(src="./imgs/item/pro2.jpg" id="image2")
-          img(src="./imgs/item/pro1.jpg" id="image3")
-          img(src="./imgs/item/pro2.jpg" id="image4")
-        .img-slider-chose
-          img(src="./imgs/item/pro1.jpg" class="active" data-image="image1")
-          img(src="./imgs/item/pro2.jpg" data-image="image2")
-          img(src="./imgs/item/pro1.jpg" data-image="image3")
-          img(src="./imgs/item/pro2.jpg" data-image="image4")
+        <a href="./imgs/item/pro1.jpg" class="MagicZoom" id="jeans"><img src="./imgs/item/pro1.jpg"></a>
+        .image-chose
+          <a data-zoom-id="jeans" href="./imgs/item/pro2.jpg" data-image="./imgs/item/pro2.jpg"><img src="./imgs/item/pro2.jpg"></a>
+          <a data-zoom-id="jeans" href="./imgs/item/pro1.jpg" data-image="./imgs/item/pro1.jpg"><img src="./imgs/item/pro1.jpg"></a>
+          <a data-zoom-id="jeans" href="./imgs/item/pro3.jpg" data-image="./imgs/item/pro3.jpg"><img src="./imgs/item/pro3.jpg"></a>
+          <a data-zoom-id="jeans" href="./imgs/item/pro4.jpg" data-image="./imgs/item/pro4.jpg"><img src="./imgs/item/pro4.jpg"></a>
       .imgae-info
         h1 55 EGP
         p Duis auctor elit a justo imperdiet, non maximus enim ornare. Fusce sed ornare eros aenean fermentum luctus turpis et pretium. Aliquam tempor lorem iaculis, porta elit at, malesuada lectus, donec ultrices, ipsum eu dictum rutrum, erat dui rhoncus magna, non blandit felis nunc nec nibh praesent aliquet mollis massa ac vulputate. Cras vel nunc et libero sodales aliquam nunc eget facilisis lectus a finibus sagittis.
@@ -36,3 +32,7 @@
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
           <i class="far fa-star"></i>
+
+
+
+
