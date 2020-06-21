@@ -125,3 +125,69 @@ window.fbAsyncInit = function() {
     js.src = "https://connect.facebook.net/ar_AR/sdk/xfbml.customerchat.js";
     fjs.parentNode.insertBefore(js, fjs);
 })(document, "script", "facebook-jssdk");
+
+// button scrrol top func
+let counterOn = false;
+let buttonUp = document.querySelector(".button-top span");
+let scrollTo = document.getElementById("scrollTo");
+//start our feature counter
+let ourSkills = document.querySelector(".about-us");
+const counterItem = document.querySelectorAll(
+    ".about-us .counter-about .count"
+);
+const speed = 1;
+var scrollToTop = () => {
+    window.onscroll = () => {
+        if (counterOn) {
+            // get offset top by skills
+            let skillsOffsetTop = ourSkills.offsetTop;
+            //skills outer height
+            let skillsOuterHeight = ourSkills.offsetHeight;
+            //window height
+            let windowHeight = this.innerHeight;
+            // window scroll top
+            let windowScrollTop = this.pageYOffset;
+
+            if (
+                windowScrollTop >
+                skillsOffsetTop + skillsOuterHeight - windowHeight
+            ) {
+                counterItem.forEach((counter) => {
+                    const updateCount = () => {
+                        const counterTarget = +counter.dataset.target;
+                        const counterStart = +counter.innerText;
+                        const inc = speed;
+                        if (counterStart < counterTarget) {
+                            counter.innerText = Math.ceil(counterStart + inc);
+                            setTimeout(updateCount, 1);
+                        } else {
+                            counterStart.innerText = counterTarget;
+                        }
+                    };
+                    updateCount();
+                });
+            }
+        }
+        if (window.pageYOffset >= 900) {
+            buttonUp.parentElement.style.display = "block";
+            if (document.title.split("-")[1] === "Home") {
+                document
+                    .querySelector(".landing-page .header-area")
+                    .classList.add("header-fixed");
+            }
+        } else {
+            buttonUp.parentElement.style.display = "none";
+            if (document.title.split("-")[1] === "Home") {
+                document
+                    .querySelector(".landing-page .header-area")
+                    .classList.remove("header-fixed");
+            }
+        }
+    };
+    buttonUp.onclick = () => {
+        scrollTo.scrollIntoView({
+            behavior: "smooth",
+        });
+    };
+};
+scrollToTop();

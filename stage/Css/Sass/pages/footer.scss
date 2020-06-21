@@ -147,6 +147,22 @@
     }
 }
 
+.button-top {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 40px;
+    z-index: 9;
+    font-weight: bold;
+    padding: 15px;
+    background-color: var(--main--color);
+    color: #fff;
+    span {
+        cursor: pointer;
+    }
+}
+
 @media(max-width:1200px) {
     .footer-page {
         .footer-info {

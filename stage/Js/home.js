@@ -168,13 +168,6 @@ if (document.title.split("-")[1] === "Home") {
         });
 
     // end landing page
-    // code button up page
-    let buttonUp = document.querySelector(".button-top span");
-    buttonUp.addEventListener("click", function() {
-        document.querySelector(".landing-page").scrollIntoView({
-            behavior: "smooth",
-        });
-    });
     // check box code for subscribe button
     let checkBoxButton = document.querySelector(".subscripe .check input");
     let buttonSubmit = document.querySelector(".subscripe input[type='submit']");
@@ -201,57 +194,7 @@ if (document.title.split("-")[1] === "Home") {
             errorMessage.classList.add("error-messge");
         }
     });
-    //start our feature
-    let ourSkills = document.querySelector(".about-us");
-    const counterItem = document.querySelectorAll(
-        ".about-us .counter-about .count"
-    );
-    const speed = 1;
-    window.onscroll = function() {
-        // get offset top by skills
-        let skillsOffsetTop = ourSkills.offsetTop;
-        //skills outer height
-        let skillsOuterHeight = ourSkills.offsetHeight;
-        //window height
-        let windowHeight = this.innerHeight;
-        // window scroll top
-        let windowScrollTop = this.pageYOffset;
-
-        if (windowScrollTop > skillsOffsetTop + skillsOuterHeight - windowHeight) {
-            counterItem.forEach((counter) => {
-                const updateCount = () => {
-                    const counterTarget = +counter.dataset.target;
-                    const counterStart = +counter.innerText;
-                    const inc = speed;
-                    if (counterStart < counterTarget) {
-                        counter.innerText = Math.ceil(counterStart + inc);
-                        setTimeout(updateCount, 1);
-                    } else {
-                        counterStart.innerText = counterTarget;
-                    }
-                };
-                updateCount();
-            });
-        }
-        // button up page
-        if (
-            this.pageYOffset >= document.querySelector(".landing-page").offsetHeight
-        ) {
-            buttonUp.parentElement.style.display = "block";
-            // add fixed class to nav bar
-            document
-                .querySelector(".landing-page .header-area")
-                .classList.add("header-fixed");
-        } else {
-            buttonUp.parentElement.style.display = "none";
-            document
-                .querySelector(".landing-page .header-area")
-                .classList.remove("header-fixed");
-        }
-        // make fixed nav bar
-    };
-
-    //end our skills
+    counterOn = true;
 
     // create popup with the image
     let ourGallery = document.querySelectorAll(".gallery .images-box img");

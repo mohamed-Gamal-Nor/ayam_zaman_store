@@ -8,76 +8,121 @@
     position: relative;
     transition: 0.5s;
     .overlay {
-        background-color: rgba($color: #000000, $alpha: 0.6);
+        background: rgb(255, 255, 255);
+        background: linear-gradient(360deg, rgba(255, 255, 255, 1) 0%, rgba(8, 8, 69, 0.7) 50%);
         position: absolute;
         width: 100%;
         height: 100%;
         left: 0;
         top: 0;
     }
-    .introduction-text {
-        width: 85%;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
+    .intro-landing {
+        position: relative;
         z-index: 1;
-        color: #fff;
-        text-align: center;
-        h1 {
-            font-size: 34px;
-            margin: 0 0 12px;
-            span {
-                color: var(--main--color);
+        display: flex;
+        flex-wrap: wrap;
+        top: 150px;
+        .introduction-text {
+            width: 50%;
+            color: #fff;
+            text-align: left;
+            padding-left: 80px;
+            h6 {
+                font-size: 40px;
+                margin: 0;
+                letter-spacing: 2px;
+                span {
+                    color: #c0392b;
+                }
+                margin-bottom: 20px;
             }
-        }
-        p {
-            line-height: 1.6;
-            font-size: 20px;
-            margin: 0;
-        }
-        .landing-button {
-            margin-top: 10px;
-            button {
-                outline: none;
-                background-color: var(--main--color);
-                border: 2px solid transparent;
-                padding: 15px;
-                font-weight: bold;
-                color: #fff;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: all 0.5s ease-in-out;
-                &:nth-of-type(1) {
-                    margin-right: 30px;
-                    &:hover {
+            h1 {
+                letter-spacing: 2px;
+                color: var(--main--color);
+                font-size: 40px;
+                margin: 0;
+                margin-bottom: 20px;
+            }
+            h4 {
+                letter-spacing: 1px;
+                font-size: 35px;
+                margin: 0;
+                margin-top: 20px;
+            }
+            p {
+                width: 85%;
+                margin-top: 25px;
+            }
+            .landing-button {
+                margin-top: 25px;
+                button {
+                    outline: none;
+                    background-color: var(--main--color);
+                    border: 2px solid transparent;
+                    padding: 15px;
+                    font-weight: bold;
+                    color: #fff;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    transition: all 0.5s ease-in-out;
+                    &:nth-of-type(1) {
+                        margin-right: 30px;
+                        &:hover {
+                            background-color: transparent;
+                            border: 2px solid var(--main--color);
+                        }
+                    }
+                    &:nth-of-type(2) {
                         background-color: transparent;
                         border: 2px solid var(--main--color);
+                        &:hover {
+                            background-color: var(--main--color);
+                            border: 2px solid transparent;
+                        }
+                    }
+                    a {
+                        text-decoration: none;
+                        color: #fff;
                     }
                 }
-                &:nth-of-type(2) {
-                    background-color: transparent;
-                    border: 2px solid var(--main--color);
-                    &:hover {
-                        background-color: var(--main--color);
-                        border: 2px solid transparent;
-                    }
-                }
+            }
+            .landing-socail {
+                padding: 35px 0px;
                 a {
                     text-decoration: none;
+                    margin: 5px;
                     color: #fff;
+                    border: 2px solid var(--main--color);
+                    padding: 5px 10px;
+                    font-size: 25px;
+                    transition: 0.3s;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: var(--main--color);
+                    }
                 }
+            }
+        }
+        .img {
+            width: 50%;
+            overflow: hidden;
+            text-align: center;
+            img {
+                width: 70%;
             }
         }
     }
     .somze-down {
-        position: absolute;
-        left: 50%;
-        top: 85%;
-        color: #fff;
+        position: relative;
+        z-index: 1;
+        margin-top: 100px;
+        text-align: center;
+        color: #080845;
         font-size: 35px;
-        cursor: pointer;
-        //animation: slideInDown 1s ease-in-out infinite;
+        i {
+            cursor: pointer;
+            //animation: slideInDown 1s ease-in-out infinite;
+        }
     }
     .slideInDown {
         -webkit-animation-name: slideInDown;
@@ -94,24 +139,6 @@
     }
 }
 
-.button-top {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    margin: 40px;
-    z-index: 9;
-    font-weight: bold;
-    padding: 5px;
-    span {
-        cursor: pointer;
-        transition: 0.3s;
-        &:hover {
-            color: var(--main--color);
-        }
-    }
-}
-
 
 /* end landing page css*/
 
@@ -120,43 +147,84 @@
 
 @media(max-width:991px) {
     .landing-page {
-        .introduction-text {
-            h1 {
-                font-size: 20px;
-            }
-            p {
-                font-size: 17px;
-            }
-            .landing-button {
-                button {
-                    font-size: 15px;
+        .intro-landing {
+            display: block;
+            top: 100px;
+            .introduction-text {
+                width: 100%;
+                text-align: center;
+                padding-left: 0px;
+                h6 {
+                    font-size: 30px;
+                }
+                h1 {
+                    font-size: 35px;
+                }
+                h4 {
+                    font-size: 30px;
+                }
+                p {
+                    width: 100%;
+                }
+                .landing-button {
+                    margin-top: 25px;
+                    text-align: center;
+                    button {
+                        display: block;
+                        &:nth-of-type(1) {
+                            margin: 10px auto;
+                        }
+                        margin: 10px auto;
+                    }
                 }
             }
+            .img {
+                display: none;
+            }
+        }
+        .somze-down {
+            margin-top: 200px;
         }
     }
 }
 
 @media(max-width:576px) {
     .landing-page {
-        .introduction-text {
-            h1 {
-                font-size: 18px;
-            }
-            p {
-                font-size: 15px;
-            }
-            .landing-button {
-                button {
-                    display: block;
-                    width: 50%;
-                    font-size: 12px;
-                    &:nth-of-type(1) {
-                        margin: 0;
+        .intro-landing {
+            max-width: 95%;
+            display: block;
+            top: 100px;
+            .introduction-text {
+                width: 100%;
+                text-align: center;
+                padding-left: 0px;
+                h6 {
+                    font-size: 25px;
+                }
+                h1 {
+                    font-size: 30px;
+                }
+                h4 {
+                    font-size: 25px;
+                }
+                .landing-button {
+                    margin-top: 25px;
+                    text-align: center;
+                    button {
+                        display: block;
+                        &:nth-of-type(1) {
+                            margin: 10px auto;
+                        }
                         margin: 10px auto;
                     }
-                    margin: 10px auto;
                 }
             }
+            .img {
+                display: none;
+            }
+        }
+        .somze-down {
+            margin-top: 200px;
         }
     }
 }

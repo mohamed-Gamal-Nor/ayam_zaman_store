@@ -3,17 +3,28 @@
   .overlay
   .container
     include ../header-page.pug
-    .introduction-text
-      h1 Welcome To <span>Ayam Zaman Store</span>
-      p(id="text" data-text="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.")  
-      .landing-button
-        button 
-          a(href="product.html") Show Proudcts
-        button 
-          a(href="contact.html") Contact Withe Store
+    .intro-landing
+      .introduction-text
+        h6 Welcome 
+          span &#10084
+        h1 Ayam Zaman Store
+        h4 Women Fashion Wear
+        p(id="text" data-text="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.")  
+        .landing-button
+          button 
+            a(href="product.html") Show Proudcts
+          button 
+            a(href="contact.html") Contact Withe Store
+        .landing-socail
+          a(href="https://ar-ar.facebook.com/Ayamzamanfashion/" target="_blank") <i class="fab fa-facebook-square"></i>
+          a(href="https://www.instagram.com/ayam_zaman_fashion/" target="_blank") <i class="fab fa-instagram"></i>
+          a(href="https://g.page/Ayamzamanfashion?gm" target="_blank") <i class="fab fa-google"></i>
+          a(href="https://www.messenger.com/t/Ayamzamanfashion" target="_blank") <i class="fab fa-facebook-messenger"></i>
+          a(href="https://jemy-galery.000webhostapp.com/dist/" target="_blank") <i class="fas fa-globe-europe"></i>
+      .img
+        img(src="./imgs/landing/intro.png")
     .somze-down
       i(class="fas fa-angle-double-down")
-  .button-top
-    span Top <i class="fas fa-arrow-up"></i>
+
 
 <!--end landing page -->

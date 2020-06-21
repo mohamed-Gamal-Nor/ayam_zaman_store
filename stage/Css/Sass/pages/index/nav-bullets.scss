@@ -47,3 +47,19 @@
         }
     }
 }
+
+@media(max-width:991px) {
+    .nav-bullets {
+        width: 50px;
+        .bullet {
+            width: 10px;
+            height: 10px;
+            margin: 10px auto;
+            &:hover {
+                .tooltip {
+                    display: none;
+                }
+            }
+        }
+    }
+}
