@@ -128,10 +128,16 @@
     .product-deatils {
         .product {
             .imgae-info {
-                .product-color,
                 .product-size {
                     span {
-                        padding: 2px 10px 2px 10px;
+                        padding: 5px;
+                        margin: 3px;
+                    }
+                }
+                .product-color {
+                    span {
+                        padding: 0px 10px 0px 10px;
+                        margin: 3px;
                     }
                 }
             }
