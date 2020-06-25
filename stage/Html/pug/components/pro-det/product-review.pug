@@ -1,9 +1,9 @@
 .product-review
   .container
     ul.review-links
-      li(data-review="des" class="active") Description
+      li(data-review="des" ) Description
       li(data-review="spe") Specification
-      li(data-review="rev") Reviews
+      li(data-review="rev" class="active") Reviews
     .view
       div(id="des" class="description view-opactiy")
         p Beryl Cook is one of Britain’s most talented and amusing artists .Beryl’s pictures feature women of all shapes and sizes enjoying themselves .Born between the two world wars, Beryl Cook eventually left Kendrick School in Reading at the age of 15, where she went to secretarial school and then into an insurance office. After moving to London and then Hampton, she eventually married her next door neighbour from Reading, John Cook. He was an officer in the Merchant Navy and after he left the sea in 1956, they bought a pub for a year before John took a job in Southern Rhodesia with a motor company. Beryl bought their young son a box of watercolours, and when showing him how to use it, she decided that she herself quite enjoyed painting. John subsequently bought her a child’s painting set for her birthday and it was with this that she produced her first significant work, a half-length portrait of a dark-skinned lady with a vacant expression and large drooping breasts. It was aptly named ‘Hangover’ by Beryl’s husband and
@@ -32,4 +32,74 @@
             td Price
             td 55 EGP
       div(id="rev" class="rev view-opactiy active")
-        .part1
+        .rev-container
+          .show-review
+            .product-rate
+              span Overall
+              span.rate 4.0
+              span (03 Reviews)
+            .user-review
+              .review
+                .info
+                  .img
+                    img(src="./imgs/review.png")
+                  .name-rate
+                    h6 Blake Ruiz
+                    .star-rate
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                p.review-comment Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              .review
+                .info
+                  .img
+                    img(src="./imgs/review.png")
+                  .name-rate
+                    h6 Blake Ruiz
+                    .star-rate
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="far fa-star"></i>
+                p.review-comment Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              .review
+                .info
+                  .img
+                    img(src="./imgs/review.png")
+                  .name-rate
+                    h6 Blake Ruiz
+                    .star-rate
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="far fa-star"></i>
+                      <i class="far fa-star"></i>
+                p.review-comment Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          .add-review
+            h1 Add a Review
+            form.add-rate
+              .rate-chose
+                h6 Your Rate
+                .star
+                  <i class="far fa-star" data-rate="1"></i>
+                  <i class="far fa-star" data-rate="2"></i>
+                  <i class="far fa-star" data-rate="3"></i>
+                  <i class="far fa-star" data-rate="4"></i>
+                  <i class="far fa-star" data-rate="5"></i>
+                select(required name="value-rate")
+                  option(value selected) rate
+                  option Very poor
+                  option Not that bad
+                  option Average
+                  option Good
+                  option Perfect 
+              input(type="text" name="name-rate" data-error="Full Name" placeholder="Your Full Name" required)
+              input(type="email" name="email-rate" data-error="Email Address" placeholder="Email Address" required)
+              input(type="phone" name="phone-rate" data-error="Phone Number" placeholder="Phone Number" required)
+              textarea(placeholder="Your Review" required)
+              input(type="submit" value="Send Review")
+              .error-messge 
+

@@ -71,9 +71,9 @@
     <div class="product-review">
       <div class="container">
         <ul class="review-links">
-          <li class="active" data-review="des">Description</li>
+          <li data-review="des">Description</li>
           <li data-review="spe">Specification</li>
-          <li data-review="rev">Reviews</li>
+          <li class="active" data-review="rev">Reviews</li>
         </ul>
         <div class="view">
           <div class="description view-opactiy" id="des">
@@ -112,7 +112,88 @@
               </tr>
             </table>
           </div>
-          <div class="rev view-opactiy active" id="rev"></div>
+          <div class="rev view-opactiy active" id="rev">
+            <div class="rev-container">
+              <div class="show-review">
+                <div class="product-rate"><span>Overall</span><span class="rate">4.0</span><span>(03 Reviews)</span></div>
+                <div class="user-review">
+                  <div class="review">
+                    <div class="info">
+                      <div class="img"><img src="./imgs/review.png"/></div>
+                      <div class="name-rate">
+                        <h6>Blake Ruiz</h6>
+                        <div class="star-rate"><i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="review-comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+                  </div>
+                  <div class="review">
+                    <div class="info">
+                      <div class="img"><img src="./imgs/review.png"/></div>
+                      <div class="name-rate">
+                        <h6>Blake Ruiz</h6>
+                        <div class="star-rate"><i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="far fa-star"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="review-comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+                  </div>
+                  <div class="review">
+                    <div class="info">
+                      <div class="img"><img src="./imgs/review.png"/></div>
+                      <div class="name-rate">
+                        <h6>Blake Ruiz</h6>
+                        <div class="star-rate"><i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="far fa-star"></i>
+<i class="far fa-star"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="review-comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+                  </div>
+                </div>
+              </div>
+              <div class="add-review">
+                <h1>Add a Review</h1>
+                <form class="add-rate">
+                  <div class="rate-chose">
+                    <h6>Your Rate</h6>
+                    <div class="star"><i class="far fa-star" data-rate="1"></i>
+<i class="far fa-star" data-rate="2"></i>
+<i class="far fa-star" data-rate="3"></i>
+<i class="far fa-star" data-rate="4"></i>
+<i class="far fa-star" data-rate="5"></i>
+                    </div>
+                    <select required="required" name="value-rate">
+                      <option value="value" selected="selected">rate</option>
+                      <option>Very poor</option>
+                      <option>Not that bad</option>
+                      <option>Average</option>
+                      <option>Good</option>
+                      <option>Perfect </option>
+                    </select>
+                  </div>
+                  <input type="text" name="name-rate" data-error="Full Name" placeholder="Your Full Name" required="required"/>
+                  <input type="email" name="email-rate" data-error="Email Address" placeholder="Email Address" required="required"/>
+                  <input type="phone" name="phone-rate" data-error="Phone Number" placeholder="Phone Number" required="required"/>
+                  <textarea placeholder="Your Review" required="required"></textarea>
+                  <input type="submit" value="Send Review"/>
+                  <div class="error-messge"> </div>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div><!-- Swiper -->

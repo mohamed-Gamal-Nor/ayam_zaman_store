@@ -27,13 +27,14 @@
         border: 1px solid #f6f6f6;
         border-top: none;
         position: relative;
-        height: 600px;
         .view-opactiy {
             opacity: 0;
+            display: none;
             transition: 0.3s;
-            position: absolute;
+            top: 0;
             &.active {
                 opacity: 1;
+                display: block;
                 z-index: 1;
             }
         }
@@ -59,6 +60,290 @@
                         padding: 10px;
                         font-weight: bold;
                         padding-top: 20px;
+                    }
+                }
+            }
+        }
+        .rev-container {
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            overflow: hidden;
+            .show-review {
+                width: 49%;
+                margin: 5px;
+                .product-rate {
+                    margin: 10px auto;
+                    width: 30%;
+                    border: 2px solid #f6f6f6;
+                    text-align: center;
+                    padding: 25px;
+                    span {
+                        display: block;
+                        margin-bottom: 5px;
+                        font-weight: bold;
+                        font-size: 20px;
+                        &.rate {
+                            color: var(--main--color);
+                            font-size: 50px;
+                        }
+                        &:last-of-type {
+                            color: #bdc3c7;
+                            font-size: 17px;
+                        }
+                    }
+                }
+                .user-review {
+                    overflow: hidden;
+                    .review {
+                        width: 100%;
+                        .info {
+                            display: flex;
+                            flex-wrap: nowrap;
+                            overflow: hidden;
+                            .img {
+                                width: 15%;
+                                text-align: center;
+                                img {
+                                    border-radius: 50%;
+                                }
+                            }
+                            .name-rate {
+                                width: 85%;
+                                text-align: left;
+                                h6 {
+                                    margin: 18px 0px 5px 0px;
+                                    font-size: 17px;
+                                }
+                                .star-rate {
+                                    color: var(--main--color);
+                                }
+                            }
+                        }
+                    }
+                    .review-comment {
+                        width: 100%;
+                        padding: 0px 5px 10px 12px;
+                        letter-spacing: 1px;
+                        font-size: 15px;
+                    }
+                }
+            }
+            .add-review {
+                width: 49%;
+                h1 {
+                    font-size: 22px;
+                }
+                .add-rate {
+                    width: 100%;
+                    padding-top: 25px;
+                    input:not([type="submit"]),
+                    textarea {
+                        width: 100%;
+                        margin-bottom: 10px;
+                        outline: none;
+                        border: 1px solid #eeeeee;
+                        padding: 10px;
+                        font-size: 13px;
+                        font-weight: bold;
+                        &:focus {
+                            &::placeholder {
+                                opacity: 0;
+                                transition: 0.3s;
+                            }
+                        }
+                        &.no-error {
+                            border: 1px solid #27ae60;
+                            transition: 0.3s;
+                        }
+                        &.error {
+                            border: 1px solid #c0392b;
+                            transition: 0.3s;
+                        }
+                    }
+                    textarea {
+                        height: 300px;
+                        resize: none;
+                    }
+                    input[type="submit"] {
+                        outline: none;
+                        border: none;
+                        padding: 10px;
+                        background-color: var(--main--color);
+                        color: #fff;
+                        font-weight: bold;
+                        cursor: pointer;
+                        float: right;
+                    }
+                    .error-messge {
+                        color: #c0392b;
+                        padding: 5px;
+                        font-weight: bold;
+                        font-size: 15px;
+                    }
+                    .rate-chose {
+                        margin-bottom: 15px;
+                        h6 {
+                            margin: 0;
+                            margin-bottom: 10px;
+                            font-size: 15px;
+                        }
+                        select {
+                            display: none;
+                        }
+                        .star {
+                            color: var(--main--color);
+                            i {
+                                transition: 0.3s;
+                                cursor: pointer;
+                                font-size: 25px;
+                                &:hover {
+                                    color: black;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:991px) {
+    .product-review {
+        .review-links {
+            display: flex;
+            flex-wrap: wrap;
+            li {
+                margin: 10px;
+                width: 28%;
+                font-size: 14px;
+            }
+        }
+        .view {
+            .description {
+                padding: 10px;
+                p {
+                    font-size: 11px;
+                }
+            }
+            .rev-container {
+                display: block;
+                .show-review {
+                    width: 100%;
+                    margin: 5px;
+                    .product-rate {
+                        margin: 10px auto;
+                        width: 40%;
+                    }
+                    .user-review {
+                        overflow: hidden;
+                        .review {
+                            width: 100%;
+                            .info {
+                                display: flex;
+                                flex-wrap: nowrap;
+                                overflow: hidden;
+                                .img {
+                                    width: 25%;
+                                }
+                                .name-rate {
+                                    width: 70%;
+                                }
+                            }
+                        }
+                        .review-comment {
+                            font-size: 13px;
+                        }
+                    }
+                }
+                .add-review {
+                    width: 95%;
+                    margin: 5px;
+                    .add-rate {
+                        width: 100%;
+                        padding-top: 25px;
+                        .error-messge {
+                            color: #c0392b;
+                            padding: 5px;
+                            font-weight: bold;
+                            font-size: 11px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:466px) {
+    .product-review {
+        .review-links {
+            padding: 0;
+            li {
+                margin: 5px;
+                width: 30%;
+                font-size: 12px;
+            }
+        }
+        .view {
+            .description {
+                padding: 10px;
+                p {
+                    font-size: 11px;
+                }
+            }
+            .rev-container {
+                display: block;
+                .show-review {
+                    width: 100%;
+                    margin: 5px;
+                    .product-rate {
+                        margin: 10px auto;
+                        width: 50%;
+                        span {
+                            font-size: 15px;
+                            &.rate {
+                                font-size: 35px;
+                            }
+                            &:last-of-type {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                    .user-review {
+                        overflow: hidden;
+                        .review {
+                            width: 100%;
+                            .info {
+                                display: flex;
+                                flex-wrap: nowrap;
+                                overflow: hidden;
+                                .img {
+                                    width: 25%;
+                                }
+                                .name-rate {
+                                    width: 70%;
+                                }
+                            }
+                        }
+                        .review-comment {
+                            font-size: 12px;
+                        }
+                    }
+                }
+                .add-review {
+                    width: 95%;
+                    margin: 5px;
+                    .add-rate {
+                        width: 100%;
+                        padding-top: 25px;
+                        .error-messge {
+                            color: #c0392b;
+                            padding: 5px;
+                            font-weight: bold;
+                            font-size: 11px;
+                        }
                     }
                 }
             }
