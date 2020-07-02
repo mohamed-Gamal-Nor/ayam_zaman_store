@@ -1,31 +1,32 @@
 {
-  "name": "ayam_zaman_store",
-  "version": "1.0.0",
-  "description": "this Template for ayam zaman store ",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "mohamed jemy",
-  "license": "ISC",
-  "devDependencies": {
-    "gulp": "^4.0.2"
-  },
-  "dependencies": {
-    "gulp-autoprefixer": "^7.0.1",
-    "gulp-concat": "^2.6.1",
-    "gulp-livereload": "^4.0.2",
-    "gulp-minify": "^3.1.0",
-    "gulp-notify": "^3.2.0",
-    "gulp-pug": "^4.0.1",
-    "gulp-sass": "^4.1.0",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-terser": "^1.2.0",
-    "gulp-uglify": "^3.0.2",
-    "gulp-uglifyes": "^0.2.1",
-    "gulp-zip": "^5.0.1",
-    "jshint": "^2.11.1",
-    "static-server": "^2.2.1",
-    "vinyl-ftp": "^0.6.1"
-  }
+    "name": "ayam_zaman_store",
+    "version": "1.0.0",
+    "description": "this Template for ayam zaman store ",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Eng - mohamed jemy",
+    "license": "ISC",
+    "devDependencies": {
+        "gulp": "^4.0.2"
+    },
+    "dependencies": {
+        "gulp-autoprefixer": "^7.0.1",
+        "gulp-concat": "^2.6.1",
+        "gulp-imagemin": "^7.1.0",
+        "gulp-livereload": "^4.0.2",
+        "gulp-minify": "^3.1.0",
+        "gulp-notify": "^3.2.0",
+        "gulp-pug": "^4.0.1",
+        "gulp-sass": "^4.1.0",
+        "gulp-sourcemaps": "^2.6.5",
+        "gulp-terser": "^1.2.0",
+        "gulp-uglify": "^3.0.2",
+        "gulp-uglifyes": "^0.2.1",
+        "gulp-zip": "^5.0.1",
+        "jshint": "^2.11.1",
+        "static-server": "^2.2.1",
+        "vinyl-ftp": "^0.6.1"
+    }
 }

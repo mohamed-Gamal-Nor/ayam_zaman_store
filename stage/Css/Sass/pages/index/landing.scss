@@ -21,7 +21,7 @@
         z-index: 1;
         display: flex;
         flex-wrap: wrap;
-        top: 150px;
+        margin: 50px auto;
         .introduction-text {
             width: 50%;
             color: #fff;
@@ -102,6 +102,19 @@
                     }
                 }
             }
+            .somze-down {
+                position: relative;
+                z-index: 1;
+                padding-top: 50px;
+                width: 50%;
+                text-align: center;
+                color: #fff;
+                font-size: 35px;
+                i {
+                    cursor: pointer;
+                    font-size: 50px;
+                }
+            }
         }
         .img {
             width: 50%;
@@ -112,31 +125,6 @@
             }
         }
     }
-    .somze-down {
-        position: relative;
-        z-index: 1;
-        margin-top: 100px;
-        text-align: center;
-        color: #080845;
-        font-size: 35px;
-        i {
-            cursor: pointer;
-            //animation: slideInDown 1s ease-in-out infinite;
-        }
-    }
-    .slideInDown {
-        -webkit-animation-name: slideInDown;
-        animation-name: slideInDown;
-    }
-    @keyframes slideInDown {
-        from {
-            transform: translate3d(0, -100%, 0);
-            visibility: visible;
-        }
-        to {
-            transform: translate3d(0, 0, 0);
-        }
-    }
 }
 
 
@@ -145,11 +133,24 @@
 
 /* start responsive for landing pages*/
 
+@media(max-width:1300px) {
+    .landing-page {
+        .intro-landing {
+            top: 0px;
+            .img {
+                img {
+                    width: 55%;
+                }
+            }
+        }
+    }
+}
+
 @media(max-width:991px) {
     .landing-page {
         .intro-landing {
             display: block;
-            top: 100px;
+            top: 0px;
             .introduction-text {
                 width: 100%;
                 text-align: center;
@@ -177,13 +178,17 @@
                         margin: 10px auto;
                     }
                 }
+                .somze-down {
+                    width: 100%;
+                    padding-top: 25px;
+                    i {
+                        font-size: 35px;
+                    }
+                }
             }
             .img {
                 display: none;
             }
-        }
-        .somze-down {
-            margin-top: 200px;
         }
     }
 }
@@ -191,9 +196,9 @@
 @media(max-width:576px) {
     .landing-page {
         .intro-landing {
-            max-width: 95%;
+            max-width: 98%;
             display: block;
-            top: 100px;
+            top: 0px;
             .introduction-text {
                 width: 100%;
                 text-align: center;
@@ -218,13 +223,17 @@
                         margin: 10px auto;
                     }
                 }
+                .somze-down {
+                    width: 100%;
+                    padding-top: 0px;
+                    i {
+                        font-size: 25px;
+                    }
+                }
             }
             .img {
                 display: none;
             }
-        }
-        .somze-down {
-            margin-top: 200px;
         }
     }
 }
